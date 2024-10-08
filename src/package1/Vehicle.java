@@ -16,7 +16,7 @@ package package1;
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for the Vehicle abstract.
+ * Provides fields and methods for the Vehicle abstract class.
  * 
  */
 abstract class Vehicle {
