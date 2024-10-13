@@ -21,18 +21,22 @@ package package1;
  */
 public class PlayerCharacter {
 	private String playerCharacterName;
-	private int playerCharacterAge;
-	private int playerCharacterGender;
+//	private int playerCharacterAge;
+//	private int playerCharacterGender;
 	
 	public PlayerCharacter() {
 		
 	}
 	
-	public PlayerCharacter(String inputName, int inputAge, int inputGender) {
-		this.playerCharacterName = inputName;
-		this.playerCharacterAge = inputAge;
-		this.playerCharacterGender = inputGender;
+	public PlayerCharacter(String inputPlayerName) {
+		this.playerCharacterName = inputPlayerName;
 	}
+	
+//	public PlayerCharacter(String inputName, int inputAge, int inputGender) {
+//		this.playerCharacterName = inputName;
+//		this.playerCharacterAge = inputAge;
+//		this.playerCharacterGender = inputGender;
+//	}
 	
 	public String getPlayerCharacterName() {
 		return this.playerCharacterName;
@@ -42,19 +46,19 @@ public class PlayerCharacter {
 		this.playerCharacterName = inputPlayerName;
 	}
 	
-	public int getPlayerCharacterAge() {
-		return this.playerCharacterAge;
-	}
-	
-	public void setPlayerCharacterAge(int inputAge) {
-		this.playerCharacterAge = inputAge;
-	}
-	
-	public int getPlayerCharacterGender() {
-		return this.playerCharacterAge;
-	}
-	
-	public void setPlayerCharacterGender(int inputGender) {
-		this.playerCharacterGender = inputGender;
-	}
+//	public int getPlayerCharacterAge() {
+//		return this.playerCharacterAge;
+//	}
+//	
+//	public void setPlayerCharacterAge(int inputAge) {
+//		this.playerCharacterAge = inputAge;
+//	}
+//	
+//	public int getPlayerCharacterGender() {
+//		return this.playerCharacterAge;
+//	}
+//	
+//	public void setPlayerCharacterGender(int inputGender) {
+//		this.playerCharacterGender = inputGender;
+//	}
 }
