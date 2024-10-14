@@ -9,7 +9,26 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+/**
+ * Lead Author(s):
+ * 
+ * @author Joe DeTone
+ *         <<add additional lead authors here, with a full first and last name>>
+ * 
+ * Other contributors:
+ *         <<add additional contributors (mentors, tutors, friends) here, with
+ *         contact information>>
+ * 
+ * References: 
+ *         <<add more references here>>
+ * 
+ * Version/date: 0.1 8 OCT 2024
+ * 
+ * Responsibilities of class:
+ * 
+ * Provides fields and methods for the Launcher GUI window.
+ * 
+ */
 public class LauncherWindow implements ActionListener {
 	
 	JFrame frame = new JFrame();
