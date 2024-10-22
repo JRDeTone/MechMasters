@@ -1,4 +1,4 @@
-package package1;
+package UserInterfaceSystems;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
@@ -31,9 +31,9 @@ import javax.swing.JTextField;
  */
 public class LauncherWindow implements ActionListener {
 	
-	JFrame frame = new JFrame();
-	JPanel panel = CharacterCreationPanel.characterCreationPanel();
-	JButton launchButton = new JButton();
+	private JFrame frame = new JFrame();
+	private JPanel panel = CharacterCreationPanel.characterCreationPanel();
+	private JButton launchButton = new JButton();
 
 	public LauncherWindow() {
 	

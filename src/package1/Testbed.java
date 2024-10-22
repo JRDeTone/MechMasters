@@ -1,9 +1,11 @@
 package package1;
 
+import UserInterfaceSystems.LauncherWindow;
+
 /**
  * Test bed.
  */
-public class Main {
+public class Testbed {
 
 	public static void main(String[] args) {
 		

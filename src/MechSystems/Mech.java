@@ -1,4 +1,4 @@
-package package1;
+package MechSystems;
 
 /**
  * Lead Author(s):
@@ -13,7 +13,7 @@ package package1;
  * References: 
  *         <<add more references here>>
  * 
- * Version/date: 0.1 8 OCT 2024
+ * Version/date: 0.2 22 OCT 2024
  * 
  * Responsibilities of class:
  * 
@@ -21,22 +21,25 @@ package package1;
  * 
  */
 
-public class Mech extends Vehicle {
+public class Mech {
 	
 	private String mechName, mechColor;
 	private int mechArmorAmount, mechArmorClass;
-	private MechWeapon weapon;
+	private final int MECHWEAPONSLOT = 0;
+	private MechEquipment[] mechLoadout = new MechEquipment[4];
 	
 	public Mech() {
-		
+		generateDefaultLoadout();
 	}
 	
 	public Mech(String inputName, String inputColor) {
+		generateDefaultLoadout();
 		this.mechName = inputName;
 		this.mechColor = inputColor;
 	}
 	
 	public Mech( String inputName, String inputColor, int inputArmorAmount, int inputArmorClass) {
+		generateDefaultLoadout();
 		this.mechName = inputName;
 		this.mechColor = inputColor;
 		this.mechArmorAmount = inputArmorAmount;
@@ -44,11 +47,17 @@ public class Mech extends Vehicle {
 	}
 	
 	public Mech( String inputName, String inputColor, int inputArmorAmount, int inputArmorClass, MechWeapon inputWeapon) {
+		generateDefaultLoadout();
 		this.mechName = inputName;
 		this.mechColor = inputColor;
 		this.mechArmorAmount = inputArmorAmount;
 		this.mechArmorClass = inputArmorClass;
-		this.weapon = inputWeapon;
+		this.mechLoadout[MECHWEAPONSLOT] = inputWeapon;
+	}
+	
+	public void generateDefaultLoadout() {
+		MechWeapon defaultWeapon = new MechWeapon();
+		this.mechLoadout[MECHWEAPONSLOT] = defaultWeapon;
 	}
 
 	public String getMechName() {
@@ -84,7 +93,7 @@ public class Mech extends Vehicle {
 	}
 	
 	public String getMechWeapon() {
-		if (this.weapon instanceof Sword) {
+		if (this.mechLoadout[MECHWEAPONSLOT] instanceof Sword) {
 			return "Sword";
 		}
 		else {
@@ -93,6 +102,6 @@ public class Mech extends Vehicle {
 	}
 	
 	public void setMechWeapon(MechWeapon inputWeapon) {
-		this.weapon = inputWeapon;
+		this.mechLoadout[MECHWEAPONSLOT] = inputWeapon;
 	}
 }

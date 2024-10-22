@@ -1,4 +1,4 @@
-package package1;
+package MechSystems;
 /**
  * Lead Author(s):
  * 
@@ -12,14 +12,14 @@ package package1;
  * References: 
  *         <<add more references here>>
  * 
- * Version/date: 0.1 8 OCT 2024
+ * Version/date: 0.2 22 OCT 2024
  * 
  * Responsibilities of class:
  * 
  * Provides fields and methods for the MechWeapon superclass.
  * 
  */
-public class MechWeapon {
+public class MechWeapon extends MechEquipment {
 	private int damageType = 0;
 	private int damageAmount = 0;
 	
