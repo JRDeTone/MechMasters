@@ -88,11 +88,15 @@ public class Mech {
 		return this.mechArmorClass;
 	}
 	
-	public void setMechArmorClasst(int inputArmorClass) {
+	public void setMechArmorClass(int inputArmorClass) {
 		this.mechArmorClass = inputArmorClass;
 	}
 	
-	public String getMechWeapon() {
+	public MechEquipment[] getMechLoadout() {
+		return this.mechLoadout;
+	}
+	
+	public String getMechWeaponType() {
 		if (this.mechLoadout[MECHWEAPONSLOT] instanceof Sword) {
 			return "Sword";
 		}
@@ -100,7 +104,9 @@ public class Mech {
 			return "None";
 		}
 	}
-	
+	public MechWeapon getMechWeapon() {
+		return (MechWeapon) this.mechLoadout[MECHWEAPONSLOT];
+	}
 	public void setMechWeapon(MechWeapon inputWeapon) {
 		this.mechLoadout[MECHWEAPONSLOT] = inputWeapon;
 	}
