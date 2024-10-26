@@ -26,10 +26,16 @@ public class LightMech extends Mech {
 	private int lightArmorClass = 0;
 	private final Sword sword = new Sword();
 	
+	public LightMech() {
+		this.setMechArmorAmount(lightArmorAmount);
+		this.setMechArmorClass(lightArmorClass);
+		this.setMechWeapon(sword);
+	}
+	
 	public LightMech( String inputName, String inputColor) {
 		super(inputName, inputColor);
 		this.setMechArmorAmount(lightArmorAmount);
-		this.setMechArmorClasst(lightArmorClass);
+		this.setMechArmorClass(lightArmorClass);
 		this.setMechWeapon(sword);
 	}
 }
