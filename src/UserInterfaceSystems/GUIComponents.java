@@ -29,7 +29,9 @@ public class GUIComponents {
 	public static HashMap<String, JPanel> uiPanels() {
 		HashMap<String, JPanel> uiPanels = new HashMap<String, JPanel>();
 		JPanel characterCreationPanel = PanelGenerator.characterCreationPanel();
+		JPanel mechCreationPanel = PanelGenerator.mechCreationPanel();
 		uiPanels.put("Character Creation", characterCreationPanel);
+		uiPanels.put("Mech Creation", mechCreationPanel);
 		
 		return uiPanels;
 	}

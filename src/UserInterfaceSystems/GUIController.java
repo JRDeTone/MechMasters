@@ -34,6 +34,7 @@ public class GUIController {
 		this.playerData = inputPlayerData;
 		this.launcherWindow.addLaunchButtonListener(new LaunchListener());	
 		this.launcherWindow.addCreateCharacterButtonListener(new CreateCharacterListener());
+		this.launcherWindow.addCreateMechButtonListener(new CreateMechListener());
 	}
 	
 	class LaunchListener implements ActionListener{
@@ -42,7 +43,7 @@ public class GUIController {
 			System.out.println("button click");
 			launcherWindow.setPanelCharacterCreation();
 			System.out.println("panel was made");
-			launcherWindow.setFrameTransition();
+			launcherWindow.setTransitionCharacterCreation();
 		}	
 	}
 	
@@ -51,6 +52,19 @@ public class GUIController {
 		public void actionPerformed(ActionEvent e) {
 			playerData.setPlayerName(launcherWindow.getCharacterNameField());
 			System.out.println(playerData.getPlayerName());
-		}	
+			launcherWindow.setPanelMechCreation();
+			launcherWindow.panelTransition();
+		}
+	}
+	
+	class CreateMechListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			playerData.setPlayerMech(launcherWindow.getMechType());
+			playerData.setPlayerMechName(launcherWindow.getMechNameField());
+			playerData.setPlayerMechColor(launcherWindow.getMechColor());
+			System.out.println(playerData.getPlayerMechName());
+			System.out.println(playerData.getPlayerMechColor());
+		}
 	}
 }

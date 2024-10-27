@@ -20,12 +20,13 @@ package DataModules;
  * 
  */
 import MechSystems.Mech;
+import MechSystems.LightMech;
 import PlayerCharacterSystems.PlayerCharacter;
 
 public class PlayerData {
 	
 	private final PlayerCharacter player = new PlayerCharacter();
-	private final Mech playerMech = new Mech();
+	private Mech playerMech;
 	
 	public PlayerData() {
 	
@@ -37,6 +38,38 @@ public class PlayerData {
 	
 	public void setPlayerName(String inputName) {
 		this.player.setCharacterName(inputName);
+	}
+	
+	public Mech getPlayerMech() {
+		return this.playerMech;
+	}
+	
+	public void setPlayerMech(String mechType) {
+		if (mechType == "Light Mech") {
+			this.playerMech = new LightMech();
+		}
+//		if (mechType == "Medium Mech") {
+//			this.playerMech = new MediumMech();
+//		}
+//		else {
+//			this.playerMech = new HeavyMech();
+//		}
+	}
+	
+	public String getPlayerMechName() {
+		return this.playerMech.getMechName();
+	}
+	
+	public void setPlayerMechName(String inputName) {
+		this.playerMech.setMechName(inputName);
+	}
+	
+	public String getPlayerMechColor() {
+		return this.playerMech.getMechColor();
+	}
+	
+	public void setPlayerMechColor(String inputColor) {
+		this.playerMech.setMechColor(inputColor);
 	}
 
 }

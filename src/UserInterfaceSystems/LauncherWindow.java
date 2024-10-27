@@ -24,6 +24,7 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -32,7 +33,8 @@ public class LauncherWindow {
 	
 	private final JFrame frame = new JFrame();;
 	private final HashMap<String, JPanel> launcherPanels = GUIComponents.uiPanels();
-	private JPanel characterCreationPanel = (JPanel) launcherPanels.get("Character Creation");
+	private final JPanel characterCreationPanel = (JPanel) launcherPanels.get("Character Creation");
+	private final JPanel mechCreationPanel = (JPanel) launcherPanels.get("Mech Creation");
 	private JPanel panel;
 	private JButton launchButton = new JButton();
 
@@ -57,29 +59,61 @@ public class LauncherWindow {
 	}
 	
 	public void addCreateCharacterButtonListener(ActionListener createCharacterListener) {
-		final int BUTTONELEMENT = 2;
+		final int CHARACTERPANELBUTTONELEMENT = 2;
 		JButton createCharacterButton;
-		createCharacterButton = (JButton) characterCreationPanel.getComponent(BUTTONELEMENT);
+		createCharacterButton = (JButton) characterCreationPanel.getComponent(CHARACTERPANELBUTTONELEMENT);
 		createCharacterButton.addActionListener(createCharacterListener);
 	}
 	
-	public JPanel getPanel() {
-		return this.panel;
+	public void addCreateMechButtonListener(ActionListener creatMechListener) {
+		final int MECHPANELBUTTONELEMENT = 6;
+		JButton createMechButton = (JButton) mechCreationPanel.getComponent(MECHPANELBUTTONELEMENT);
+		createMechButton.addActionListener(creatMechListener);
 	}
 	
 	public void setPanelCharacterCreation() {
 		this.frame.add(this.panel = characterCreationPanel);
 	}
 	
-	public String getCharacterNameField() {
-		final int TEXTFIELDELEMENT = 1;
-		JTextField name;
-		name = (JTextField) characterCreationPanel.getComponent(TEXTFIELDELEMENT);
-		return name.getText();
+	public void setPanelMechCreation() {
+		this.frame.remove(this.panel);
+		this.frame.add(this.panel = mechCreationPanel);
 	}
 	
-	public void setFrameTransition() {
+	public String getCharacterNameField() {
+		final int CHARACTERNAMEELEMENT = 1;
+		JTextField characterName;
+		characterName = (JTextField) characterCreationPanel.getComponent(CHARACTERNAMEELEMENT);
+		return characterName.getText();
+	}
+	
+	public String getMechType() {
+		final int MECHTYPEELEMENT = 2;
+		JComboBox<?> comboBox = (JComboBox<?>) mechCreationPanel.getComponent(MECHTYPEELEMENT);
+		return (String) comboBox.getSelectedItem();
+	}
+	
+	public String getMechColor() {
+		final int MECHCOLORELEMENT = 4;
+		JComboBox<?> comboBox = (JComboBox<?>) mechCreationPanel.getComponent(MECHCOLORELEMENT);
+		return (String) comboBox.getSelectedItem();
+	}
+	
+	public String getMechNameField() {
+		final int MECHNAMEELEMENT = 5;
+		JTextField mechName;
+		mechName = (JTextField) mechCreationPanel.getComponent(MECHNAMEELEMENT);
+		return mechName.getText();
+	}
+	
+	public void setTransitionCharacterCreation() {
 		this.frame.remove(launchButton);
+		this.frame.setLayout(new GridBagLayout());
+		this.frame.revalidate();
+		this.frame.repaint();
+	}
+	
+	public void panelTransition() {
 		this.frame.setLayout(new GridBagLayout());
 		this.frame.revalidate();
 		this.frame.repaint();
