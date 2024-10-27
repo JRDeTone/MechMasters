@@ -1,16 +1,4 @@
 package UserInterfaceSystems;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.AbstractButton;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 /**
  * Lead Author(s):
  * 
@@ -24,20 +12,29 @@ import javax.swing.JTextField;
  * References: 
  *         <<add more references here>>
  * 
- * Version/date: 0.1 8 OCT 2024
+ * Version/date: 0.3 8 OCT 2024
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for the Launcher GUI window.
+ * Provides fields and methods for the LauncherWindow class.
  * 
  */
+import java.awt.Color;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionListener;
+import java.util.HashMap;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 public class LauncherWindow {
 	
 	private final JFrame frame = new JFrame();;
+	private final HashMap<String, JPanel> launcherPanels = GUIComponents.uiPanels();
+	private JPanel characterCreationPanel = (JPanel) launcherPanels.get("Character Creation");
 	private JPanel panel;
 	private JButton launchButton = new JButton();
-	private boolean isCharacterCreation = false;
-	private boolean isGameSetup = false;
 
 	public LauncherWindow() {
 	
@@ -55,48 +52,30 @@ public class LauncherWindow {
 		this.launchButton.setFocusable(false);
 	}
 	
-	public void addLaunchButtonListener(ActionListener listenerForLaunchButton) {
-		this.launchButton.addActionListener(listenerForLaunchButton);
+	public void addLaunchButtonListener(ActionListener launcherListener) {
+		this.launchButton.addActionListener(launcherListener);
 	}
-	public void addCreateCharacterButtonListener(ActionListener listernerForCreateCharacterButtonButton) {
+	
+	public void addCreateCharacterButtonListener(ActionListener createCharacterListener) {
+		final int BUTTONELEMENT = 2;
 		JButton createCharacterButton;
-		if (this.panel != null) {
-			createCharacterButton = (JButton) this.panel.getComponent(2);
-			createCharacterButton.addActionListener(listernerForCreateCharacterButtonButton);
-		}
+		createCharacterButton = (JButton) characterCreationPanel.getComponent(BUTTONELEMENT);
+		createCharacterButton.addActionListener(createCharacterListener);
 	}
+	
 	public JPanel getPanel() {
 		return this.panel;
 	}
 	
-	public void setJPanel(JPanel inputPanel) {
-		this.frame.add(this.panel = inputPanel);
+	public void setPanelCharacterCreation() {
+		this.frame.add(this.panel = characterCreationPanel);
 	}
 	
-//	@Override
-//	public void actionPerformed(ActionEvent e) {
-//	
-//		if(e.getSource() == launchButton) {
-//////			frame.dispose();
-//////			CharacterCreationWindow creationWindow = new CharacterCreationWindow();
-//			this.frame.add(this.panel = CharacterCreationPanel.characterCreationPanel());
-//			this.frame.remove(launchButton);
-//			this.frame.setLayout(new GridBagLayout());
-//			this.frame.revalidate();
-//			this.frame.repaint();
-//			this.isCharacterCreation = true;
-//		}
-//	}
-	
 	public String getCharacterNameField() {
-		JTextField characterNameField;
-		if (this.panel != null) {
-			characterNameField = (JTextField) this.panel.getComponent(1);
-			return characterNameField.getText();
-		}
-		else {
-			return "None";
-		}
+		final int TEXTFIELDELEMENT = 1;
+		JTextField name;
+		name = (JTextField) characterCreationPanel.getComponent(TEXTFIELDELEMENT);
+		return name.getText();
 	}
 	
 	public void setFrameTransition() {
@@ -104,18 +83,5 @@ public class LauncherWindow {
 		this.frame.setLayout(new GridBagLayout());
 		this.frame.revalidate();
 		this.frame.repaint();
-		this.isCharacterCreation = true;
-	}
-	
-	public boolean getIsCharacterCreation() {
-		return this.isCharacterCreation;
-	}
-	
-	public boolean getIsGameSetup() {
-		return this.isGameSetup;
-	}
-	
-	public void setIsGameSetup() {
-		this.isGameSetup = true;
 	}
 }

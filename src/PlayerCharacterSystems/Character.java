@@ -1,4 +1,4 @@
-package MechSystems;
+package PlayerCharacterSystems;
 /**
  * Lead Author(s):
  * 
@@ -16,18 +16,26 @@ package MechSystems;
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for MechEquipment abstract class.
+ * Provides fields and methods for the Character superclass.
  * 
  */
-public abstract class MechEquipment {
 
-//	private int equipmentCost;
-//	private int equipmentWeight;
-//	private int equipmentPowerRequirement;
-//	private int equipmentHeatAmount;
+public class Character {
+	private String characterName;
 	
-	public MechEquipment(){
+	public Character() {
 		
 	}
 	
+	public Character(String inputName) {
+		this.characterName = inputName;
+	}
+	
+	public String getCharacterName() {
+		return this.characterName;
+	}
+	
+	public void setCharacterName(String inputName) {
+		this.characterName = inputName;
+	}
 }

@@ -1,4 +1,4 @@
-package MechSystems;
+package DataModules;
 /**
  * Lead Author(s):
  * 
@@ -16,18 +16,22 @@ package MechSystems;
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for MechEquipment abstract class.
+ * Provides fields and methods for the NonPlayerData class.
  * 
  */
-public abstract class MechEquipment {
 
-//	private int equipmentCost;
-//	private int equipmentWeight;
-//	private int equipmentPowerRequirement;
-//	private int equipmentHeatAmount;
+import java.util.ArrayList;
+
+import MechSystems.Mech;
+import PlayerCharacterSystems.NonPlayerCharacter;
+
+public class NonPlayerData {
 	
-	public MechEquipment(){
+	private ArrayList<Mech> enemyMechArrayList = new ArrayList<Mech>();
+	private ArrayList<NonPlayerCharacter> npcArrayList = new ArrayList<NonPlayerCharacter>();
+	
+	public NonPlayerData() {
 		
 	}
-	
+
 }

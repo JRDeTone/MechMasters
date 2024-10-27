@@ -1,8 +1,6 @@
 package package1;
 
-import MechSystems.LightMech;
-import MechSystems.Mech;
-import PlayerCharacterSystems.PlayerCharacter;
+import DataModules.PlayerData;
 import UserInterfaceSystems.GUIController;
 import UserInterfaceSystems.LauncherWindow;
 
@@ -12,24 +10,9 @@ import UserInterfaceSystems.LauncherWindow;
 public class Testbed {
 
 	public static void main(String[] args) {
-		boolean idleState = true;
-		LauncherWindow openWindow = new LauncherWindow();
-		GUIController controller = new GUIController(openWindow);
-		
-		while (idleState == true) {
-			try {
-				if(openWindow.getIsGameSetup() == false) {
-					Thread.sleep(2000);
-				}
-				else {
-					System.out.println("Exit Idle");
-					break;
-				}
-			} 
-			catch (InterruptedException idleError) {
-				
-			}
-		}
+		final PlayerData playerData = new PlayerData();
+		final LauncherWindow openWindow = new LauncherWindow();
+		final GUIController controller = new GUIController(openWindow, playerData);
 		System.out.println("Entering setup");
 				
 	}

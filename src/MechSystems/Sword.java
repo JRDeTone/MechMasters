@@ -13,7 +13,7 @@ package MechSystems;
  * References: 
  *         <<add more references here>>
  * 
- * Version/date: 0.1 8 OCT 2024
+ * Version/date: 0.3 27 OCT 2024
  * 
  * Responsibilities of class:
  * 

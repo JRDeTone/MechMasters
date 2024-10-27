@@ -1,16 +1,34 @@
 package UserInterfaceSystems;
-
+/**
+ * Lead Author(s):
+ * 
+ * @author Joe DeTone
+ *         <<add additional lead authors here, with a full first and last name>>
+ * 
+ * Other contributors:
+ *         <<add additional contributors (mentors, tutors, friends) here, with
+ *         contact information>>
+ * 
+ * References: 
+ *         <<add more references here>>
+ * 
+ * Version/date: 0.1 8 OCT 2024
+ * 
+ * Responsibilities of class:
+ * 
+ * Provides fields and methods for PanelGenerator.
+ * 
+ */
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class MechCreationPanel {
-	
-public static JPanel characterCreationPanel() {
+public class PanelGenerator {
+
+	public static JPanel characterCreationPanel() {
 		
 		JPanel characterCreationPanel = new JPanel();
 		JLabel helloPilot = new JLabel();
@@ -34,5 +52,4 @@ public static JPanel characterCreationPanel() {
 	
 	return characterCreationPanel;
 	}
-
 }
