@@ -71,5 +71,4 @@ public class PlayerData {
 	public void setPlayerMechColor(String inputColor) {
 		this.playerMech.setMechColor(inputColor);
 	}
-
 }

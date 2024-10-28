@@ -26,13 +26,35 @@ import javax.swing.JPanel;
 
 public class GUIComponents {
 	
-	public static HashMap<String, JPanel> uiPanels() {
-		HashMap<String, JPanel> uiPanels = new HashMap<String, JPanel>();
+	public static HashMap<String, JPanel> uiPanelsHashMap() {
+		HashMap<String, JPanel> uiPanelsHashMap = new HashMap<String, JPanel>();
 		JPanel characterCreationPanel = PanelGenerator.characterCreationPanel();
 		JPanel mechCreationPanel = PanelGenerator.mechCreationPanel();
-		uiPanels.put("Character Creation", characterCreationPanel);
-		uiPanels.put("Mech Creation", mechCreationPanel);
+		JPanel mechHangar = PanelGenerator.hangarPanel();
+		uiPanelsHashMap.put("Character Creation", characterCreationPanel);
+		uiPanelsHashMap.put("Mech Creation", mechCreationPanel);
+		uiPanelsHashMap.put("Mech Hangar", mechHangar);
 		
-		return uiPanels;
+		return uiPanelsHashMap;
+	}
+	
+	public static ArrayList<JPanel> uiPanelsArrayList(){
+		ArrayList<JPanel> uiPanelsArrayList = new ArrayList<JPanel>();
+		JPanel characterCreationPanel = PanelGenerator.characterCreationPanel();
+		JPanel mechCreationPanel = PanelGenerator.mechCreationPanel();
+		uiPanelsArrayList.add(characterCreationPanel);
+		uiPanelsArrayList.add(mechCreationPanel);
+		
+		return uiPanelsArrayList;
+	}
+	
+	public static JPanel[] uiPanelsArray(){
+		JPanel[] uiPanelsArray = new JPanel[5];
+		JPanel characterCreationPanel = PanelGenerator.characterCreationPanel();
+		JPanel mechCreationPanel = PanelGenerator.mechCreationPanel();
+		uiPanelsArray[0] = characterCreationPanel;
+		uiPanelsArray[1] = mechCreationPanel;
+		
+		return uiPanelsArray;
 	}
 }

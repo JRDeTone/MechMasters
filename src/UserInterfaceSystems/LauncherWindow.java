@@ -1,4 +1,5 @@
 package UserInterfaceSystems;
+import java.awt.BorderLayout;
 /**
  * Lead Author(s):
  * 
@@ -32,9 +33,10 @@ import javax.swing.JTextField;
 public class LauncherWindow {
 	
 	private final JFrame frame = new JFrame();;
-	private final HashMap<String, JPanel> launcherPanels = GUIComponents.uiPanels();
+	private final HashMap<String, JPanel> launcherPanels = GUIComponents.uiPanelsHashMap();
 	private final JPanel characterCreationPanel = (JPanel) launcherPanels.get("Character Creation");
 	private final JPanel mechCreationPanel = (JPanel) launcherPanels.get("Mech Creation");
+	private final JPanel mechHangarPanel = (JPanel) launcherPanels.get("Mech Hangar");
 	private JPanel panel;
 	private JButton launchButton = new JButton();
 
@@ -71,15 +73,6 @@ public class LauncherWindow {
 		createMechButton.addActionListener(creatMechListener);
 	}
 	
-	public void setPanelCharacterCreation() {
-		this.frame.add(this.panel = characterCreationPanel);
-	}
-	
-	public void setPanelMechCreation() {
-		this.frame.remove(this.panel);
-		this.frame.add(this.panel = mechCreationPanel);
-	}
-	
 	public String getCharacterNameField() {
 		final int CHARACTERNAMEELEMENT = 1;
 		JTextField characterName;
@@ -87,13 +80,13 @@ public class LauncherWindow {
 		return characterName.getText();
 	}
 	
-	public String getMechType() {
+	public String getMechTypeField() {
 		final int MECHTYPEELEMENT = 2;
 		JComboBox<?> comboBox = (JComboBox<?>) mechCreationPanel.getComponent(MECHTYPEELEMENT);
 		return (String) comboBox.getSelectedItem();
 	}
 	
-	public String getMechColor() {
+	public String getMechColorField() {
 		final int MECHCOLORELEMENT = 4;
 		JComboBox<?> comboBox = (JComboBox<?>) mechCreationPanel.getComponent(MECHCOLORELEMENT);
 		return (String) comboBox.getSelectedItem();
@@ -106,15 +99,26 @@ public class LauncherWindow {
 		return mechName.getText();
 	}
 	
-	public void setTransitionCharacterCreation() {
+	public void transitionToCharacterCreation() {
+		this.frame.add(this.panel = characterCreationPanel);
 		this.frame.remove(launchButton);
 		this.frame.setLayout(new GridBagLayout());
 		this.frame.revalidate();
 		this.frame.repaint();
 	}
 	
-	public void panelTransition() {
+	public void transitionToMechCreation() {
+		this.frame.remove(this.panel);
+		this.frame.add(this.panel = mechCreationPanel);
 		this.frame.setLayout(new GridBagLayout());
+		this.frame.revalidate();
+		this.frame.repaint();
+	}
+	
+	public void transitionToMechHangar() {
+		this.frame.remove(this.panel);
+		this.frame.setLayout(new BorderLayout());
+		this.frame.add(this.panel = mechHangarPanel, BorderLayout.CENTER);
 		this.frame.revalidate();
 		this.frame.repaint();
 	}
