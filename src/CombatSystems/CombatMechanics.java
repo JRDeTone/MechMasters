@@ -12,7 +12,7 @@ package CombatSystems;
  * References: 
  *         <<add more references here>>
  * 
- * Version/date: 0.3 27 OCT 2024
+ * Version/date: 0.3.01 31 OCT 2024
  * 
  * Responsibilities of class:
  * 
@@ -21,60 +21,64 @@ package CombatSystems;
  */
 
 import java.util.HashMap;
-
 import MechSystems.Mech;
 import MechSystems.MechEquipment;
 import MechSystems.MechWeapon;
 
 public class CombatMechanics {
+	private final int ARMORCLASSFAILDAMAGE = 1;
+	private Mech playerMech;
+	private Mech enemyMech;
+	private int playerDamageAmount, enemyDamageAmount, playerArmorAmount, enemyArmorAmount, 
+	playerArmorClass, enemyArmorClass;
 	
-//	private final int LOADOUTSLOTCOLUMNS = 4;
-//	private final int LOADOUTSLOTROWS = 1;
+	public CombatMechanics() {
+		
+	}
 	
+	public CombatMechanics(Mech playerMech, Mech enemyMech) {
+		this.playerMech = playerMech;
+		this.enemyMech = enemyMech;
+		this.playerDamageAmount = this.playerMech.getMechWeapon().getDamageAmount();
+		this.enemyDamageAmount = this.enemyMech.getMechWeapon().getDamageAmount();
+		this.playerArmorAmount = this.playerMech.getMechArmorAmount();
+		this.enemyArmorAmount = this.enemyMech.getMechArmorAmount();
+		this.playerArmorClass = this.playerMech.getMechArmorClass();
+		this.enemyArmorClass = this.enemyMech.getMechArmorClass();
+	}
 	
-//	public void combinedEquipmentLoadout(MechEquipment[] playerMech, MechEquipment[] enemyMech) {
-//		int columnCount = 0;
-//		MechEquipment[][] mechLoadout = new MechEquipment[LOADOUTSLOTROWS][LOADOUTSLOTCOLUMNS];
-//		for (MechEquipment i : playerMech) {
-//			mechLoadout[LOADOUTSLOTROWS - 1][columnCount++] = i;
-//		}
-//		for (MechEquipment i : enemyMech) {
-//			mechLoadout[LOADOUTSLOTROWS][columnCount++] = i;
-//		}
-//	}
-	
-//	public void equipmentLoadout(MechEquipment[] playerMech, MechEquipment[] enemyMech) {
-//		HashMap<String, MechEquipment[]> combinedLoadout = new HashMap<>();
-//		combinedLoadout.put("PlayerLoadout", playerMech);
-//		combinedLoadout.put("EnemyLoadout", enemyMech);
-//	}
-	
-	
-//	public void damageValuesArray(MechEquipment playerMech, MechEquipment enemyMech) {
-//		int[] damageValues = new int[1];
-//		
-//	}
-	
-	public boolean combatPlayerActionAttack(Mech attackingMech, Mech defendingMech) {
-//		Probably won't use this first one since it would need to load these fields every time.
-//		int playerWeaponDamage = playerMech.getMechWeapon().getDamageAmount();
-//		int enemyArmorClass = enemyMech.getMechArmorClass();
-//		if (playerWeaponDamage > enemyArmorClass) {
-//			enemyMech.setMechArmorAmount(enemyMech.getMechArmorAmount() - playerWeaponDamage);
-//		}
-		// Will likely go with this in the long run, less readable but would require less overhead.
-		if (attackingMech.getMechWeapon().getDamageAmount() > defendingMech.getMechArmorClass()) {
-			defendingMech.setMechArmorAmount(defendingMech.getMechArmorAmount() - attackingMech.getMechWeapon().getDamageAmount());
+	public boolean playerAttackAction() {
+
+		if (this.playerDamageAmount > this.enemyArmorClass) {
+			this.enemyMech.setMechArmorAmount(this.enemyArmorAmount - this.playerDamageAmount);
 		}
 		else {
-			defendingMech.setMechArmorAmount(defendingMech.getMechArmorAmount() - 1);
+			this.enemyMech.setMechArmorAmount(this.enemyArmorAmount - ARMORCLASSFAILDAMAGE);
 		}
 		
-		if (defendingMech.getMechArmorAmount() > 0) {
+		if (this.enemyMech.getMechArmorAmount() > 0) {
 			return true;
 		}
 		else {
 			return false;
 		}
 	}
+	
+	public boolean enemyAttackAction() {
+
+		if (this.enemyDamageAmount > this.playerArmorClass) {
+			this.playerMech.setMechArmorAmount(this.playerArmorAmount - this.enemyDamageAmount);
+		}
+		else {
+			this.playerMech.setMechArmorAmount(this.playerArmorAmount - ARMORCLASSFAILDAMAGE);
+		}
+		
+		if (this.playerMech.getMechArmorAmount() > 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 }

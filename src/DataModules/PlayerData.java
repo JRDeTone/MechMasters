@@ -20,6 +20,8 @@ package DataModules;
  * 
  */
 import MechSystems.Mech;
+import MechSystems.MediumMech;
+import MechSystems.HeavyMech;
 import MechSystems.LightMech;
 import PlayerCharacterSystems.PlayerCharacter;
 
@@ -48,12 +50,12 @@ public class PlayerData {
 		if (mechType == "Light Mech") {
 			this.playerMech = new LightMech();
 		}
-//		if (mechType == "Medium Mech") {
-//			this.playerMech = new MediumMech();
-//		}
-//		else {
-//			this.playerMech = new HeavyMech();
-//		}
+		if (mechType == "Medium Mech") {
+			this.playerMech = new MediumMech();
+		}
+		else {
+			this.playerMech = new HeavyMech();
+		}
 	}
 	
 	public String getPlayerMechName() {

@@ -159,4 +159,45 @@ public class PanelGenerator {
 		
 		return hangarMainPanel;
 	}
+	
+	public static JPanel combatPanel(){
+		Border loweredBevelBorder = BorderFactory.createLoweredBevelBorder();
+		Border raisedBevelBorder = BorderFactory.createRaisedBevelBorder();
+		
+		JPanel combatPanel = new JPanel();
+		combatPanel.setLayout(new BorderLayout());
+		
+		JPanel textRenderPanel = new JPanel();
+		textRenderPanel.setBorder(loweredBevelBorder);
+		JLabel textRender = new JLabel("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		
+		JPanel dataDisplayLeft = new JPanel();
+		dataDisplayLeft.setBorder(raisedBevelBorder);
+		JPanel dataDisplayRight = new JPanel();
+		dataDisplayRight.setBorder(raisedBevelBorder);
+		
+		JPanel buttonControlPanel = new JPanel();
+		JButton attackButton = new JButton("Attack");
+		JButton defendButton = new JButton("Defend");
+		JButton specialButton = new JButton("Special Action");
+		JButton inventoryButton = new JButton("Inventory");
+		JButton surrenderButton = new JButton("Surrender");
+		JButton reload = new JButton("Reload");
+		buttonControlPanel.setLayout(new GridLayout(3, 2, 10, 10));
+		buttonControlPanel.setBorder(raisedBevelBorder);
+		buttonControlPanel.add(attackButton);
+		buttonControlPanel.add(defendButton);
+		buttonControlPanel.add(reload);
+		buttonControlPanel.add(specialButton);
+		buttonControlPanel.add(inventoryButton);
+		buttonControlPanel.add(surrenderButton);
+		
+		combatPanel.add(textRenderPanel, BorderLayout.CENTER);
+		combatPanel.add(dataDisplayLeft, BorderLayout.WEST);
+		combatPanel.add(dataDisplayRight, BorderLayout.EAST);
+		combatPanel.add(buttonControlPanel, BorderLayout.SOUTH);
+		textRenderPanel.add(textRender);
+		
+		return combatPanel;
+	}
 }
