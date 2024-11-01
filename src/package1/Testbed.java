@@ -1,5 +1,6 @@
 package package1;
 
+import DataModules.GameText;
 import DataModules.PlayerData;
 import UserInterfaceSystems.GUIController;
 import UserInterfaceSystems.LauncherWindow;
@@ -10,10 +11,9 @@ import UserInterfaceSystems.LauncherWindow;
 public class Testbed {
 
 	public static void main(String[] args) {
-		final PlayerData playerData = new PlayerData();
-		final LauncherWindow openWindow = new LauncherWindow();
-		final GUIController controller = new GUIController(openWindow, playerData);
-		System.out.println("Entering setup");
+		
+		GameText textContent = new GameText();
+		System.out.print(textContent.getGameText());
 				
 	}
 	
