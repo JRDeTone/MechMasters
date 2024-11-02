@@ -22,8 +22,8 @@ package DataModules;
 
 import java.util.ArrayList;
 
+import CharacterSystems.NonPlayerCharacter;
 import MechSystems.Mech;
-import PlayerCharacterSystems.NonPlayerCharacter;
 
 public class NonPlayerData {
 	

@@ -1,4 +1,4 @@
-package PlayerCharacterSystems;
+package CharacterSystems;
 /**
  * Lead Author(s):
  * 

@@ -21,9 +21,9 @@ package DataModules;
  */
 import MechSystems.Mech;
 import MechSystems.MediumMech;
+import CharacterSystems.PlayerCharacter;
 import MechSystems.HeavyMech;
 import MechSystems.LightMech;
-import PlayerCharacterSystems.PlayerCharacter;
 
 public class PlayerData {
 	

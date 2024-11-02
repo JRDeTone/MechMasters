@@ -1,4 +1,4 @@
-package PlayerCharacterSystems;
+package CharacterSystems;
 /**
  * Lead Author(s):
  * 
@@ -16,18 +16,16 @@ package PlayerCharacterSystems;
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for the NonPlayerCharacter subclass.
+ * Provides fields and methods for the PlayerCharacterClass subclass.
  * 
  */
-
-public class NonPlayerCharacter extends Character {
+public class PlayerCharacter extends Character{
 	
-	public NonPlayerCharacter() {
+	public PlayerCharacter() {
 		
 	}
 	
-	public NonPlayerCharacter(String inputName) {
+	public PlayerCharacter(String inputName) {
 		super(inputName);
 	}
-
 }
