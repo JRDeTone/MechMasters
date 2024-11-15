@@ -23,6 +23,7 @@ package UserInterfaceSystems;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import DataModules.PlayerData;
+import SupportSystems.SaveLoad;
 
 public class GUIController {
 	
@@ -30,11 +31,13 @@ public class GUIController {
 	private PlayerData playerData;
 	
 	public GUIController(LauncherWindow inputLauncherWindow, PlayerData inputPlayerData) {
-		this.launcherWindow = inputLauncherWindow;
-		this.playerData = inputPlayerData;
-		this.launcherWindow.addLaunchButtonListener(new LaunchListener());	
-		this.launcherWindow.addCreateCharacterButtonListener(new CreateCharacterListener());
-		this.launcherWindow.addCreateMechButtonListener(new CreateMechListener());
+		launcherWindow = inputLauncherWindow;
+		playerData = inputPlayerData;
+		launcherWindow.addLaunchButtonListener(new LaunchListener());	
+		launcherWindow.addCreateCharacterButtonListener(new CreateCharacterListener());
+		launcherWindow.addCreateMechButtonListener(new CreateMechListener());
+		launcherWindow.addSaveGameButtonListener(new SaveGameListener());
+		launcherWindow.addLoadGameButtonListener(new LoadGameListener());
 	}
 	
 	class LaunchListener implements ActionListener{
@@ -48,7 +51,6 @@ public class GUIController {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			playerData.setPlayerName(launcherWindow.getCharacterNameField());
-			System.out.println(playerData.getPlayerName());
 			launcherWindow.transitionToMechCreation();
 		}
 	}
@@ -60,6 +62,21 @@ public class GUIController {
 			playerData.setPlayerMechName(launcherWindow.getMechNameField());
 			playerData.setPlayerMechColor(launcherWindow.getMechColorField());
 			launcherWindow.transitionToMechHangar();
+		}
+	}
+	
+	class SaveGameListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			SaveLoad.saveGameState(playerData);
+		}
+	}
+	
+	class LoadGameListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if(SaveLoad.loadGameState(playerData) != true)
+				System.out.println("Loading failed, save file missing or empty.");
 		}
 	}
 }

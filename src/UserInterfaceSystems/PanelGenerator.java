@@ -140,8 +140,8 @@ public class PanelGenerator {
 		JButton button2 = new JButton("Button");
 		JButton button3 = new JButton("Button");
 		JButton button4 = new JButton("Button");
-		JButton button5 = new JButton("Button");
-		JButton button6 = new JButton("Button");
+		JButton button5 = new JButton("Save");
+		JButton button6 = new JButton("Load");
 		buttonControlPanel.setLayout(new GridLayout(3, 2, 10, 10));
 		buttonControlPanel.setBorder(raisedBevelBorder);
 		buttonControlPanel.add(button1);

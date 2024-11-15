@@ -25,6 +25,7 @@ public class HeavyMech extends Mech{
 	private final MachineGun machineGun = new MachineGun();
 	
 	public HeavyMech() {
+		this.setMechType("heavyMech");
 		this.setMechArmorAmount(heavyArmorAmount);
 		this.setMechArmorClass(heavyArmorClass);
 		this.setMechWeapon(machineGun);
@@ -32,6 +33,7 @@ public class HeavyMech extends Mech{
 	
 	public HeavyMech( String inputName, String inputColor) {
 		super(inputName, inputColor);
+		this.setMechType("heavyMech");
 		this.setMechArmorAmount(heavyArmorAmount);
 		this.setMechArmorClass(heavyArmorClass);
 		this.setMechWeapon(machineGun);

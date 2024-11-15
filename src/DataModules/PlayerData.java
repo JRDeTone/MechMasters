@@ -73,4 +73,8 @@ public class PlayerData {
 	public void setPlayerMechColor(String inputColor) {
 		this.playerMech.setMechColor(inputColor);
 	}
+	
+	public String getPlayerMechType() {
+		return this.playerMech.getMechType();
+	}
 }

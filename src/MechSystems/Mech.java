@@ -23,7 +23,7 @@ package MechSystems;
 
 public class Mech {
 	
-	private String mechName, mechColor;
+	private String mechName, mechColor, mechType = "No value set.";
 	private int mechArmorAmount, mechArmorClass;
 	private final int MECHWEAPONSLOT = 0;
 	private MechEquipment[] mechLoadout = new MechEquipment[4];
@@ -59,9 +59,17 @@ public class Mech {
 		MechWeapon defaultWeapon = new MechWeapon();
 		this.mechLoadout[MECHWEAPONSLOT] = defaultWeapon;
 	}
+	
+	public String getMechType() {
+		return this.mechType;
+	}
+	
+	public void setMechType(String mechType) {
+		this.mechType = mechType;
+	}
 
 	public String getMechName() {
-		return mechName;
+		return this.mechName;
 	}
 
 	public void setMechName(String mechName) {
@@ -69,7 +77,7 @@ public class Mech {
 	}
 
 	public String getMechColor() {
-		return mechColor;
+		return this.mechColor;
 	}
 
 	public void setMechColor(String mechColor) {

@@ -61,41 +61,57 @@ public class LauncherWindow {
 	}
 	
 	public void addCreateCharacterButtonListener(ActionListener createCharacterListener) {
-		final int CHARACTERPANELBUTTONELEMENT = 2;
+		final int CHARACTER_PANEL_BUTTON_ELEMENT = 2;
 		JButton createCharacterButton;
-		createCharacterButton = (JButton) characterCreationPanel.getComponent(CHARACTERPANELBUTTONELEMENT);
+		createCharacterButton = (JButton) characterCreationPanel.getComponent(CHARACTER_PANEL_BUTTON_ELEMENT);
 		createCharacterButton.addActionListener(createCharacterListener);
 	}
 	
 	public void addCreateMechButtonListener(ActionListener creatMechListener) {
-		final int MECHPANELBUTTONELEMENT = 6;
-		JButton createMechButton = (JButton) mechCreationPanel.getComponent(MECHPANELBUTTONELEMENT);
+		final int MECH_PANEL_BUTTON_ELEMENT = 6;
+		JButton createMechButton = (JButton) mechCreationPanel.getComponent(MECH_PANEL_BUTTON_ELEMENT);
 		createMechButton.addActionListener(creatMechListener);
 	}
 	
+	public void addSaveGameButtonListener(ActionListener saveGameListener) {
+		final int BUTTON_CONTROL_PANEL_ELEMENT = 3;
+		final int SAVE_GAME_BUTTON_ELEMENT = 4;
+		JPanel buttonControlPanel = (JPanel) mechHangarPanel.getComponent(BUTTON_CONTROL_PANEL_ELEMENT);
+		JButton saveGameButton = (JButton) buttonControlPanel.getComponent(SAVE_GAME_BUTTON_ELEMENT);
+		saveGameButton.addActionListener(saveGameListener);
+	}
+	
+	public void addLoadGameButtonListener(ActionListener loadGameListener) {
+		final int BUTTON_CONTROL_PANEL_ELEMENT = 3;
+		final int LOAD_GAME_BUTTON_ELEMENT = 5;
+		JPanel buttonControlPanel = (JPanel) mechHangarPanel.getComponent(BUTTON_CONTROL_PANEL_ELEMENT);
+		JButton loadGameButton = (JButton) buttonControlPanel.getComponent(LOAD_GAME_BUTTON_ELEMENT);
+		loadGameButton.addActionListener(loadGameListener);
+	}
+	
 	public String getCharacterNameField() {
-		final int CHARACTERNAMEELEMENT = 1;
+		final int CHARACTER_NAME_ELEMENT = 1;
 		JTextField characterName;
-		characterName = (JTextField) characterCreationPanel.getComponent(CHARACTERNAMEELEMENT);
+		characterName = (JTextField) characterCreationPanel.getComponent(CHARACTER_NAME_ELEMENT);
 		return characterName.getText();
 	}
 	
 	public String getMechTypeField() {
-		final int MECHTYPEELEMENT = 2;
-		JComboBox<?> comboBox = (JComboBox<?>) mechCreationPanel.getComponent(MECHTYPEELEMENT);
+		final int MECH_TYPE_ELEMENT = 2;
+		JComboBox<?> comboBox = (JComboBox<?>) mechCreationPanel.getComponent(MECH_TYPE_ELEMENT);
 		return (String) comboBox.getSelectedItem();
 	}
 	
 	public String getMechColorField() {
-		final int MECHCOLORELEMENT = 4;
-		JComboBox<?> comboBox = (JComboBox<?>) mechCreationPanel.getComponent(MECHCOLORELEMENT);
+		final int MECH_COLOR_ELEMENT = 4;
+		JComboBox<?> comboBox = (JComboBox<?>) mechCreationPanel.getComponent(MECH_COLOR_ELEMENT);
 		return (String) comboBox.getSelectedItem();
 	}
 	
 	public String getMechNameField() {
-		final int MECHNAMEELEMENT = 5;
+		final int MECH_NAME_ELEMENT = 5;
 		JTextField mechName;
-		mechName = (JTextField) mechCreationPanel.getComponent(MECHNAMEELEMENT);
+		mechName = (JTextField) mechCreationPanel.getComponent(MECH_NAME_ELEMENT);
 		return mechName.getText();
 	}
 	

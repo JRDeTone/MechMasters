@@ -26,6 +26,7 @@ public class MediumMech extends Mech {
 	private final BeamRifle beamRifle = new BeamRifle();
 	
 	public MediumMech() {
+		this.setMechType("mediumMech");
 		this.setMechArmorAmount(mediumArmorAmount);
 		this.setMechArmorClass(mediumArmorClass);
 		this.setMechWeapon(beamRifle);
@@ -33,6 +34,7 @@ public class MediumMech extends Mech {
 	
 	public MediumMech( String inputName, String inputColor) {
 		super(inputName, inputColor);
+		this.setMechType("mediumMech");
 		this.setMechArmorAmount(mediumArmorAmount);
 		this.setMechArmorClass(mediumArmorClass);
 		this.setMechWeapon(beamRifle);
