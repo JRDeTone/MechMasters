@@ -13,7 +13,7 @@ package MechSystems;
  * References: 
  *         <<add more references here>>
  * 
- * Version/date: 0.3 27 OCT 2024
+ * Version/date: 0.3.5 16 NOV 2024
  * 
  * Responsibilities of class:
  * 
@@ -88,8 +88,16 @@ public class Mech {
 		return this.mechArmorAmount;
 	}
 	
+	public String getMechArmorAmountString() {
+		return Integer.toString(this.mechArmorAmount);
+	}
+	
 	public void setMechArmorAmount(int inputArmorAmount) {
 		this.mechArmorAmount = inputArmorAmount;
+	}
+	
+	public void setMechArmorAmount(String inputArmorAmount) {
+		this.mechArmorAmount = Integer.parseInt(inputArmorAmount);
 	}
 	
 	public int getMechArmorClass() {

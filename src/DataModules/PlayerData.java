@@ -50,7 +50,7 @@ public class PlayerData {
 		if (mechType == "Light Mech") {
 			this.playerMech = new LightMech();
 		}
-		if (mechType == "Medium Mech") {
+		else if (mechType == "Medium Mech") {
 			this.playerMech = new MediumMech();
 		}
 		else {
@@ -76,5 +76,25 @@ public class PlayerData {
 	
 	public String getPlayerMechType() {
 		return this.playerMech.getMechType();
+	}
+	
+	public int playerGetMechArmorAmount() {
+		return this.playerMech.getMechArmorAmount();
+	}
+	
+	public String playerGetMechArmorAmountString() {
+		return Integer.toString(this.playerMech.getMechArmorAmount());
+	}
+	
+	public void playerSetMechArmorAmount(int inputArmorAmount) {
+		this.playerMech.setMechArmorAmount(inputArmorAmount);
+	}
+	
+	public void setMechArmorAmount(String inputArmorAmount) {
+		this.playerMech.setMechArmorAmount(inputArmorAmount);
+	}
+	
+	public int getMechArmorClass() {
+		return this.playerMech.getMechArmorClass();
 	}
 }

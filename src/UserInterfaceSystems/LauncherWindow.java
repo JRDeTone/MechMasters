@@ -1,5 +1,4 @@
 package UserInterfaceSystems;
-import java.awt.BorderLayout;
 /**
  * Lead Author(s):
  * 
@@ -13,13 +12,14 @@ import java.awt.BorderLayout;
  * References: 
  *         <<add more references here>>
  * 
- * Version/date: 0.3 8 OCT 2024
+ * Version/date: 0.3.5 16 NOV 2024
  * 
  * Responsibilities of class:
  * 
  * Provides fields and methods for the LauncherWindow class.
  * 
  */
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
@@ -27,6 +27,7 @@ import java.util.HashMap;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -75,7 +76,7 @@ public class LauncherWindow {
 	
 	public void addSaveGameButtonListener(ActionListener saveGameListener) {
 		final int BUTTON_CONTROL_PANEL_ELEMENT = 3;
-		final int SAVE_GAME_BUTTON_ELEMENT = 4;
+		final int SAVE_GAME_BUTTON_ELEMENT = 2;
 		JPanel buttonControlPanel = (JPanel) mechHangarPanel.getComponent(BUTTON_CONTROL_PANEL_ELEMENT);
 		JButton saveGameButton = (JButton) buttonControlPanel.getComponent(SAVE_GAME_BUTTON_ELEMENT);
 		saveGameButton.addActionListener(saveGameListener);
@@ -83,7 +84,7 @@ public class LauncherWindow {
 	
 	public void addLoadGameButtonListener(ActionListener loadGameListener) {
 		final int BUTTON_CONTROL_PANEL_ELEMENT = 3;
-		final int LOAD_GAME_BUTTON_ELEMENT = 5;
+		final int LOAD_GAME_BUTTON_ELEMENT = 3;
 		JPanel buttonControlPanel = (JPanel) mechHangarPanel.getComponent(BUTTON_CONTROL_PANEL_ELEMENT);
 		JButton loadGameButton = (JButton) buttonControlPanel.getComponent(LOAD_GAME_BUTTON_ELEMENT);
 		loadGameButton.addActionListener(loadGameListener);
@@ -131,11 +132,26 @@ public class LauncherWindow {
 		this.frame.repaint();
 	}
 	
-	public void transitionToMechHangar() {
+	public void transitionToMechHangar(String playerName, String mechName, String mechColor, String mechType, String mechHealth) {
 		this.frame.remove(this.panel);
 		this.frame.setLayout(new BorderLayout());
+		JPanel tempPanel = (JPanel) mechHangarPanel.getComponent(1);
+		JLabel tempLabel = (JLabel) tempPanel.getComponent(0);
+		tempLabel.setText(playerName);
+		tempLabel = (JLabel) tempPanel.getComponent(2);
+		tempLabel.setText(mechName);
+		tempLabel = (JLabel) tempPanel.getComponent(3);
+		tempLabel.setText(mechColor);
+		tempLabel = (JLabel) tempPanel.getComponent(4);
+		tempLabel.setText(mechType);
+		tempLabel = (JLabel) tempPanel.getComponent(5);
+		tempLabel.setText(mechHealth);
 		this.frame.add(this.panel = mechHangarPanel, BorderLayout.CENTER);
 		this.frame.revalidate();
 		this.frame.repaint();
+	}
+	
+	public void loadStateUIRefresh() {
+		//Might do something with this later, but just calling transitionToMechHangar again works fine for now.
 	}
 }

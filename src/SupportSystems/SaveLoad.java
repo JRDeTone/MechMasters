@@ -1,5 +1,24 @@
 package SupportSystems;
-
+/**
+ * Lead Author(s):
+ * 
+ * @author Joe DeTone
+ *         <<add additional lead authors here, with a full first and last name>>
+ * 
+ * Other contributors:
+ *         <<add additional contributors (mentors, tutors, friends) here, with
+ *         contact information>>
+ * 
+ * References: 
+ *         <<add more references here>>
+ * 
+ * Version/date: 0.1 16 NOV 2024
+ * 
+ * Responsibilities of class:
+ * 
+ * Provides fields and methods for the SaveLoad class.
+ * 
+ */
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -10,32 +29,29 @@ import DataModules.PlayerData;
 
 public class SaveLoad {
 	
-	public static void saveGameState(PlayerData playerData) {
+	public static boolean saveGameState(PlayerData playerData) {
 		ArrayList<String> playerDataFields = new ArrayList<String>();
 		playerDataFields.add(playerData.getPlayerName());
 		playerDataFields.add(playerData.getPlayerMechType());
 		playerDataFields.add(playerData.getPlayerMechName());
 		playerDataFields.add(playerData.getPlayerMechColor());
 		
-		try {
-			FileWriter saveFile = new FileWriter("src/SaveData.txt");
-			BufferedWriter bufferedSaveFile = new BufferedWriter(saveFile);
+		try(BufferedWriter bufferedSaveFile = new BufferedWriter(new FileWriter("src/SaveData.txt"))) {
+
 			for(String playerFieldsToSave : playerDataFields) {
 				bufferedSaveFile.write(playerFieldsToSave + "\n");
 			}
-			bufferedSaveFile.close();
 		}
 		catch(IOException ex) {
-			ex.printStackTrace();
+			return false;
 		}
+		return true;
 	}
 	
 	public static boolean loadGameState(PlayerData playerData) {
 		ArrayList<String> playerDataFields = new ArrayList<String>();
 
-		try {
-			FileReader loadFile = new FileReader("src/SaveData.txt");
-			BufferedReader bufferedLoadFile = new BufferedReader(loadFile);
+		try (BufferedReader bufferedLoadFile = new BufferedReader(new FileReader("src/SaveData.txt"))){
 			bufferedLoadFile.mark(1);
 			String playerDataHopper;
 
@@ -50,10 +66,8 @@ public class SaveLoad {
 			while((playerDataHopper = bufferedLoadFile.readLine()) != null) {
 				playerDataFields.add(playerDataHopper);
 			}
-			bufferedLoadFile.close();
 		}
 		catch(IOException ex) {
-			ex.printStackTrace();
 			return false;
 		}
 		

@@ -12,7 +12,7 @@ package UserInterfaceSystems;
  * References: 
  *         <<add more references here>>
  * 
- * Version/date: 0.3 27 OCT 2024
+ * Version/date: 0.3.5 16 NOV 2024
  * 
  * Responsibilities of class:
  * 
@@ -61,7 +61,8 @@ public class GUIController {
 			playerData.setPlayerMech(launcherWindow.getMechTypeField());
 			playerData.setPlayerMechName(launcherWindow.getMechNameField());
 			playerData.setPlayerMechColor(launcherWindow.getMechColorField());
-			launcherWindow.transitionToMechHangar();
+			launcherWindow.transitionToMechHangar(playerData.getPlayerName(), playerData.getPlayerMechName(), 
+					playerData.getPlayerMechType(), playerData.getPlayerMechColor(), playerData.playerGetMechArmorAmountString());
 		}
 	}
 	
@@ -75,8 +76,11 @@ public class GUIController {
 	class LoadGameListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(SaveLoad.loadGameState(playerData) != true)
+			if(SaveLoad.loadGameState(playerData) != true) {
 				System.out.println("Loading failed, save file missing or empty.");
-		}
+			}
+			launcherWindow.transitionToMechHangar(playerData.getPlayerName(), playerData.getPlayerMechName(), 
+					playerData.getPlayerMechType(), playerData.getPlayerMechColor(), playerData.playerGetMechArmorAmountString());
+		}	
 	}
 }

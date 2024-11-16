@@ -20,12 +20,12 @@ package MechSystems;
  * 
  */
 public class HeavyMech extends Mech{
-	private int heavyArmorAmount = 15;
+	private int heavyArmorAmount = 20;
 	private int heavyArmorClass = 1;
 	private final MachineGun machineGun = new MachineGun();
 	
 	public HeavyMech() {
-		this.setMechType("heavyMech");
+		this.setMechType("Heavy Mech");
 		this.setMechArmorAmount(heavyArmorAmount);
 		this.setMechArmorClass(heavyArmorClass);
 		this.setMechWeapon(machineGun);
@@ -33,7 +33,7 @@ public class HeavyMech extends Mech{
 	
 	public HeavyMech( String inputName, String inputColor) {
 		super(inputName, inputColor);
-		this.setMechType("heavyMech");
+		this.setMechType("Heavy Mech");
 		this.setMechArmorAmount(heavyArmorAmount);
 		this.setMechArmorClass(heavyArmorClass);
 		this.setMechWeapon(machineGun);
