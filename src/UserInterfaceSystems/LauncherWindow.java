@@ -33,6 +33,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 public class LauncherWindow {
 	
@@ -51,7 +52,7 @@ public class LauncherWindow {
 		this.frame.setTitle("MECH MASTERS");
 		this.frame.setVisible(true);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.frame.setSize(750, 500);
+		this.frame.setSize(850, 500);
 		this.frame.setLocationRelativeTo(null);
 		this.frame.getContentPane().setBackground(Color.GRAY);
 		this.frame.setLayout(new GridBagLayout());
@@ -239,34 +240,54 @@ public class LauncherWindow {
 		this.frame.repaint();
 	}
 	
+	public void updateCombatTextUpdate(String enemySpeech, String playerSpeech) {
+		final int TEXT_RENDER_PANEL_ELEMENT = 0;
+		final int ENEMY_SPEECH_ELEMENT = 1;
+		final int PLAYER_SPEECH_ELEMENT = 3;
+		JPanel tempPanel;
+		JTextPane tempPane;
+		
+		tempPanel = (JPanel) combatPanel.getComponent(TEXT_RENDER_PANEL_ELEMENT);
+		tempPane = (JTextPane) tempPanel.getComponent(ENEMY_SPEECH_ELEMENT);
+		tempPane.setText(enemySpeech);
+		tempPane = (JTextPane) tempPanel.getComponent(PLAYER_SPEECH_ELEMENT);
+		tempPane.setText(playerSpeech);
+	}
+	
 	public void updateMechArmorAmountCombatDisplay(String mechArmorAmount) {
+		final int DATA_DISPLAY_LEFT_ELEMENT = 1;
+		final int LABEL_MECH_ARMOR_AMOUNT = 6;
 		JPanel tempPanel;
 		JLabel tempLabel;
 		
-		tempPanel = (JPanel) combatPanel.getComponent(1);
-		tempLabel = (JLabel) tempPanel.getComponent(6);
+		tempPanel = (JPanel) combatPanel.getComponent(DATA_DISPLAY_LEFT_ELEMENT);
+		tempLabel = (JLabel) tempPanel.getComponent(LABEL_MECH_ARMOR_AMOUNT);
 		tempLabel.setText(mechArmorAmount);
 		this.panel.revalidate();
 		this.panel.repaint();
 	}
 	
 	public void updateMechArmorAmountCombatDisplayEnemy(String mechArmorAmount) {
+		final int DATA_DISPLAY_RIGHT_ELEMENT = 2;
+		final int LABEL_MECH_ARMOR_AMOUNT = 6;
 		JPanel tempPanel;
 		JLabel tempLabel;
 		
-		tempPanel = (JPanel) combatPanel.getComponent(2);
-		tempLabel = (JLabel) tempPanel.getComponent(6);
+		tempPanel = (JPanel) combatPanel.getComponent(DATA_DISPLAY_RIGHT_ELEMENT);
+		tempLabel = (JLabel) tempPanel.getComponent(LABEL_MECH_ARMOR_AMOUNT);
 		tempLabel.setText(mechArmorAmount);
 		this.panel.revalidate();
 		this.panel.repaint();
 	}
 	
 	public void updateMechArmorAmountHangarDisplay(String mechArmorAmount) {
+		final int DATA_DISPLAY_LEFT_ELEMENT = 1;
+		final int LABEL_MECH_ARMOR_AMOUNT = 6;
 		JPanel tempPanel;
 		JLabel tempLabel;
 		
-		tempPanel = (JPanel) mechHangarPanel.getComponent(1);
-		tempLabel = (JLabel) tempPanel.getComponent(6);
+		tempPanel = (JPanel) mechHangarPanel.getComponent(DATA_DISPLAY_LEFT_ELEMENT);
+		tempLabel = (JLabel) tempPanel.getComponent(LABEL_MECH_ARMOR_AMOUNT);
 		tempLabel.setText(mechArmorAmount);
 		this.panel.revalidate();
 		this.panel.repaint();

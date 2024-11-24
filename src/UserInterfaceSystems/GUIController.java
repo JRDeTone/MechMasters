@@ -22,7 +22,10 @@ package UserInterfaceSystems;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
+
 import CombatSystems.CombatMechanics;
+import CombatSystems.SoundsOfBattle;
 import DataModules.PlayerData;
 import SupportSystems.SaveLoad;
 
@@ -95,9 +98,15 @@ public class GUIController {
 	class CreateAttackListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			String enemySpeech, playerSpeech;
 			System.out.println("I got here.");
 			if (combatMechanics.playerAttackAction()) {
 				System.out.println("Attack!");
+				Random lyricSeeder = new Random();
+				int lyricSeed = lyricSeeder.nextInt(10);
+				enemySpeech = SoundsOfBattle.enemySong(lyricSeed);
+				playerSpeech = SoundsOfBattle.playerSong(lyricSeed);
+				launcherWindow.updateCombatTextUpdate(enemySpeech, playerSpeech);
 				//launcherWindow.updateMechArmorAmountCombatDisplay(combatMechanics.getPlayerArmorCurrent());
 			}
 			else {

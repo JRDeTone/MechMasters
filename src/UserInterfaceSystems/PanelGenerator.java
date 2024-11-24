@@ -21,29 +21,10 @@ package UserInterfaceSystems;
  */
 import java.awt.BorderLayout;
 import java.awt.Color;
-/**
- * Lead Author(s):
- * 
- * @author Joe DeTone
- *         <<add additional lead authors here, with a full first and last name>>
- * 
- * Other contributors:
- *         <<add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
- * 
- * References: 
- *         <<add more references here>>
- * 
- * Version/date: 0.2 16 NOV 2024
- * 
- * Responsibilities of class:
- * 
- * Provides fields and methods for PanelGenerator.
- * 
- */
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -55,6 +36,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.border.Border;
+import javax.swing.text.Caret;
+import javax.swing.text.DefaultCaret;
 
 public class PanelGenerator {
 
@@ -209,25 +192,49 @@ public class PanelGenerator {
 		combatPanel.setBackground(Color.GRAY);
 		
 		JPanel textRenderPanel = new JPanel();
-		textRenderPanel.setBackground(Color.GRAY);
-		JTextPane textRender = new JTextPane();
-		textRender.setEditable(false);
-		textRender.setBackground(Color.GRAY);
+		textRenderPanel.setLayout(new BoxLayout(textRenderPanel, BoxLayout.Y_AXIS));
 		Font textRenderFont = new Font("DejaVu Sans", Font.BOLD, 16);
-		textRender.setFont(textRenderFont);
-		textRender.setText(
-				"The moment has arrived for fighting\r\n"
-				+ "   There is no escape or hiding\r\n"
-				+ "Darkness will be broken open\r\n"
-				+ "   Shattered by the crimson lightning"
+		Font textRenderFont2 = new Font("DejaVu Sans", Font.BOLD, 20);
+		Font dataDisplayFont = new Font("DejaVu Sans", Font.BOLD, 16);
+		
+		JLabel textRenderEnemy = new JLabel();
+		textRenderEnemy.setFont(textRenderFont2);
+		textRenderEnemy.setText("Enemy");
+		textRenderEnemy.setHorizontalAlignment(JLabel.LEFT);
+		
+		JLabel textRenderPilot = new JLabel();
+		textRenderPilot.setFont(textRenderFont2);
+		textRenderPilot.setHorizontalAlignment(JLabel.RIGHT);
+		textRenderPilot.setText("Pilot");
+		textRenderPanel.setBackground(Color.GRAY);
+		
+		JTextPane textRenderEnemySpeech = new JTextPane();
+		textRenderEnemySpeech.setEditable(false);
+		textRenderEnemySpeech.setCaret(hideCaret);
+		textRenderEnemySpeech.setBackground(Color.GRAY);
+		
+		JTextPane textRenderPlayerSpeech = new JTextPane();
+		textRenderPlayerSpeech.setEditable(false);
+		textRenderPlayerSpeech.setCaret(hideCaret);
+		textRenderPlayerSpeech.setBackground(Color.GRAY);
+		
+		textRenderEnemySpeech.setFont(textRenderFont);
+		textRenderPlayerSpeech.setFont(textRenderFont);
+		textRenderEnemySpeech.setText(
+				"The moment has arrived for fighting.\n"
+				+ "   There is no escape or hiding.\n"
+				+ "Darkness will be broken open.\n"
+				+ "   Shattered by the crimson lightning."
 				);
+		textRenderPlayerSpeech.setText(
+				"I hear the thunder getting closer all the time.\n"
+				+ "   But my heart of steel will never hide.\n");
 		
 		JPanel dataDisplayLeft = new JPanel();
 		dataDisplayLeft.setBackground(Color.GRAY);
 		dataDisplayLeft.setBorder(CompoundBorder);
 		dataDisplayLeft.setLayout(new BoxLayout(dataDisplayLeft, BoxLayout.Y_AXIS));
 		
-		Font dataDisplayFont = new Font("DejaVu Sans", Font.BOLD, 16);
 		JLabel leftCharacterName = new JLabel("Character Name");
 		leftCharacterName.setFont(dataDisplayFont);
 		JLabel leftMechStatus = new JLabel("Mech Status: READY");
@@ -281,27 +288,48 @@ public class PanelGenerator {
 		
 		JPanel buttonControlPanel = new JPanel();
 		buttonControlPanel.setBackground(Color.GRAY);
-		JButton attackButton = new JButton("Attack");
-		JButton defendButton = new JButton("Defend");
-		JButton specialButton = new JButton("Special Action");
-		JButton inventoryButton = new JButton("Inventory");
-		JButton surrenderButton = new JButton("Surrender");
-		JButton reload = new JButton("Reload");
+		JButton attackButton = new JButton("Fight!");
+//		JButton defendButton = new JButton("Defend");
+//		JButton specialButton = new JButton("Special Action");
+//		JButton inventoryButton = new JButton("Inventory");
+//		JButton surrenderButton = new JButton("Surrender");
+//		JButton reload = new JButton("Reload");
 		buttonControlPanel.setLayout(new GridLayout(3, 2, 10, 10));
 		buttonControlPanel.setBorder(raisedBevelBorder);
 		buttonControlPanel.add(attackButton);
-		buttonControlPanel.add(defendButton);
-		buttonControlPanel.add(reload);
-		buttonControlPanel.add(specialButton);
-		buttonControlPanel.add(inventoryButton);
-		buttonControlPanel.add(surrenderButton);
+		//buttonControlPanel.add(defendButton);
+		//buttonControlPanel.add(reload);
+		//buttonControlPanel.add(specialButton);
+		//buttonControlPanel.add(inventoryButton);
+		//buttonControlPanel.add(surrenderButton);
 		
 		combatPanel.add(textRenderPanel, BorderLayout.CENTER);
 		combatPanel.add(dataDisplayLeft, BorderLayout.WEST);
 		combatPanel.add(dataDisplayRight, BorderLayout.EAST);
 		combatPanel.add(buttonControlPanel, BorderLayout.SOUTH);
-		textRenderPanel.add(textRender);
+		
+		textRenderPanel.add(textRenderEnemy);
+		textRenderPanel.add(textRenderEnemySpeech);
+		textRenderPanel.add(textRenderPilot);
+		textRenderPanel.add(textRenderPlayerSpeech);
 		
 		return combatPanel;
 	}
+	
+
+    static Caret hideCaret = new DefaultCaret() {
+        @Override
+        public void paint(Graphics g) {
+        }
+
+        @Override
+        public boolean isVisible() {
+            return false;
+        }
+
+        @Override
+        public boolean isSelectionVisible() {
+            return false;
+        }
+    };
 }
