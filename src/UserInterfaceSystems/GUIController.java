@@ -22,6 +22,7 @@ package UserInterfaceSystems;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import CombatSystems.CombatMechanics;
 import DataModules.PlayerData;
 import SupportSystems.SaveLoad;
 
@@ -29,18 +30,29 @@ public class GUIController {
 	
 	private LauncherWindow launcherWindow;
 	private PlayerData playerData;
+	private CombatMechanics combatMechanics;
 	
-	public GUIController(LauncherWindow inputLauncherWindow, PlayerData inputPlayerData) {
+	public GUIController(LauncherWindow inputLauncherWindow, PlayerData inputPlayerData, CombatMechanics inputCombatMechanics) {
 		launcherWindow = inputLauncherWindow;
 		playerData = inputPlayerData;
-		launcherWindow.addLaunchButtonListener(new LaunchListener());	
+		combatMechanics = inputCombatMechanics;
+		
+		launcherWindow.addCreateLaunchButtonListener(new CreateLaunchListener());
+		
 		launcherWindow.addCreateCharacterButtonListener(new CreateCharacterListener());
+		
 		launcherWindow.addCreateMechButtonListener(new CreateMechListener());
-		launcherWindow.addSaveGameButtonListener(new SaveGameListener());
-		launcherWindow.addLoadGameButtonListener(new LoadGameListener());
+		
+		launcherWindow.addCreateBattleButtonListener(new CreateBattleListener());
+		
+		launcherWindow.addAttackButtonListener(new CreateAttackListener());
+		
+		launcherWindow.addCreateSaveGameButtonListener(new CreateSaveGameListener());
+		
+		launcherWindow.addCreateLoadGameButtonListener(new CreateLoadGameListener());
 	}
 	
-	class LaunchListener implements ActionListener{
+	class CreateLaunchListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			launcherWindow.transitionToCharacterCreation();
@@ -61,19 +73,59 @@ public class GUIController {
 			playerData.setPlayerMech(launcherWindow.getMechTypeField());
 			playerData.setPlayerMechName(launcherWindow.getMechNameField());
 			playerData.setPlayerMechColor(launcherWindow.getMechColorField());
+			
 			launcherWindow.transitionToMechHangar(playerData.getPlayerName(), playerData.getPlayerMechName(), 
 					playerData.getPlayerMechType(), playerData.getPlayerMechColor(), playerData.playerGetMechArmorAmountString());
 		}
 	}
 	
-	class SaveGameListener implements ActionListener{
+	class CreateBattleListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			combatMechanics.setPlayerMech(playerData.getPlayerMech());
+			combatMechanics.setPlayerCombatData();
+			combatMechanics.setEnemyMech();
+			combatMechanics.setEnemyCombatData();
+			combatMechanics.setEnemy();
+			launcherWindow.transitionToBattle(combatMechanics.getEnemyName(), combatMechanics.getEnemyMechName(), 
+					combatMechanics.getEnemyMechType(), combatMechanics.getEnemyMechColor(), combatMechanics.getEnemyArmorCurrent());
+		}	
+	}
+	
+	class CreateAttackListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("I got here.");
+			if (combatMechanics.playerAttackAction()) {
+				System.out.println("Attack!");
+				//launcherWindow.updateMechArmorAmountCombatDisplay(combatMechanics.getPlayerArmorCurrent());
+			}
+			else {
+				System.out.println("Enemy Died.");
+				launcherWindow.updateMechArmorAmountCombatDisplay(playerData.playerGetMechArmorAmountString());
+				launcherWindow.transitionBackToHangar();
+			}
+			
+			if (combatMechanics.enemyAttackAction()) {
+				System.out.println("Attack22222222!");
+				launcherWindow.updateMechArmorAmountCombatDisplay(combatMechanics.getPlayerArmorCurrent());
+			}
+			else {
+				System.out.println("Player has died.");
+				launcherWindow.updateMechArmorAmountCombatDisplay(playerData.playerGetMechArmorAmountString());
+				launcherWindow.transitionBackToHangar();
+			}
+		}	
+	}
+	
+	class CreateSaveGameListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			SaveLoad.saveGameState(playerData);
 		}
 	}
 	
-	class LoadGameListener implements ActionListener{
+	class CreateLoadGameListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(SaveLoad.loadGameState(playerData) != true) {

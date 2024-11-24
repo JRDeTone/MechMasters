@@ -31,9 +31,11 @@ public class GUIComponents {
 		JPanel characterCreationPanel = PanelGenerator.characterCreationPanel();
 		JPanel mechCreationPanel = PanelGenerator.mechCreationPanel();
 		JPanel mechHangar = PanelGenerator.hangarPanel();
+		JPanel combatPanel = PanelGenerator.combatPanel();
 		uiPanelsHashMap.put("Character Creation", characterCreationPanel);
 		uiPanelsHashMap.put("Mech Creation", mechCreationPanel);
 		uiPanelsHashMap.put("Mech Hangar", mechHangar);
+		uiPanelsHashMap.put("Combat", combatPanel);
 		
 		return uiPanelsHashMap;
 	}

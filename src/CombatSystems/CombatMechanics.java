@@ -20,43 +20,57 @@ package CombatSystems;
  * 
  */
 
-import java.util.HashMap;
+import CharacterSystems.EntityComponentGenerator;
+import CharacterSystems.NonPlayerCharacter;
 import MechSystems.Mech;
-import MechSystems.MechEquipment;
-import MechSystems.MechWeapon;
 
 public class CombatMechanics {
 	private final int ARMORCLASSFAILDAMAGE = 1;
 	private Mech playerMech;
 	private Mech enemyMech;
-	private int playerDamageAmount, enemyDamageAmount, playerArmorAmount, enemyArmorAmount, 
+	private NonPlayerCharacter npc;
+	private int playerDamageAmount, enemyDamageAmount, playerArmorCurrentAmount,
+	enemyArmorCurrentAmount, 
 	playerArmorClass, enemyArmorClass;
 	
 	public CombatMechanics() {
-		
+
 	}
 	
-	public CombatMechanics(Mech playerMech, Mech enemyMech) {
-		this.playerMech = playerMech;
-		this.enemyMech = enemyMech;
+	public void setPlayerMech(Mech inputPlayerMech) {
+		this.playerMech = inputPlayerMech;
+	}
+	
+	public void setPlayerCombatData() {
 		this.playerDamageAmount = this.playerMech.getMechWeapon().getDamageAmount();
-		this.enemyDamageAmount = this.enemyMech.getMechWeapon().getDamageAmount();
-		this.playerArmorAmount = this.playerMech.getMechArmorAmount();
-		this.enemyArmorAmount = this.enemyMech.getMechArmorAmount();
+		this.playerArmorCurrentAmount = this.playerMech.getMechArmorAmount();
 		this.playerArmorClass = this.playerMech.getMechArmorClass();
+	}
+	
+	public void setEnemyMech() {
+		this.enemyMech = EntityComponentGenerator.iNeedAMech();
+	}
+	
+	public void setEnemy() {
+		this.npc = EntityComponentGenerator.iNeedACharacter();
+	}
+	
+	public void setEnemyCombatData() {
+		this.enemyDamageAmount = this.enemyMech.getMechWeapon().getDamageAmount();
+		this.enemyArmorCurrentAmount = this.enemyMech.getMechArmorAmount();
 		this.enemyArmorClass = this.enemyMech.getMechArmorClass();
 	}
 	
 	public boolean playerAttackAction() {
 
 		if (this.playerDamageAmount > this.enemyArmorClass) {
-			this.enemyMech.setMechArmorAmount(this.enemyArmorAmount - this.playerDamageAmount);
+			this.enemyArmorCurrentAmount = this.enemyArmorCurrentAmount - this.playerDamageAmount;
 		}
 		else {
-			this.enemyMech.setMechArmorAmount(this.enemyArmorAmount - ARMORCLASSFAILDAMAGE);
+			this.enemyArmorCurrentAmount = this.enemyArmorCurrentAmount - ARMORCLASSFAILDAMAGE;
 		}
 		
-		if (this.enemyMech.getMechArmorAmount() > 0) {
+		if (this.enemyArmorCurrentAmount > 0) {
 			return true;
 		}
 		else {
@@ -67,18 +81,42 @@ public class CombatMechanics {
 	public boolean enemyAttackAction() {
 
 		if (this.enemyDamageAmount > this.playerArmorClass) {
-			this.playerMech.setMechArmorAmount(this.playerArmorAmount - this.enemyDamageAmount);
+			this.playerArmorCurrentAmount = this.playerArmorCurrentAmount - this.enemyDamageAmount;
 		}
 		else {
-			this.playerMech.setMechArmorAmount(this.playerArmorAmount - ARMORCLASSFAILDAMAGE);
+			this.playerArmorCurrentAmount = this.playerArmorCurrentAmount - ARMORCLASSFAILDAMAGE;
 		}
 		
-		if (this.playerMech.getMechArmorAmount() > 0) {
+		if (this.playerArmorCurrentAmount > 0) {
 			return true;
 		}
 		else {
 			return false;
 		}
+	}
+	
+	public String getEnemyName() {
+		return npc.getCharacterName();
+	}
+	
+	public String getEnemyMechName() {
+		return this.enemyMech.getMechName();
+	}
+	
+	public String getEnemyMechColor() {
+		return this.enemyMech.getMechColor();
+	}
+	
+	public String getEnemyMechType() {
+		return this.enemyMech.getMechType();
+	}
+	
+	public String getPlayerArmorCurrent() {
+		return Integer.toString(this.playerArmorCurrentAmount);
+	}
+	
+	public String getEnemyArmorCurrent() {
+		return Integer.toString(this.enemyArmorCurrentAmount);
 	}
 	
 }

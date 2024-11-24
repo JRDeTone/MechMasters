@@ -21,6 +21,9 @@ package UserInterfaceSystems;
  */
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
@@ -38,26 +41,39 @@ public class LauncherWindow {
 	private final JPanel characterCreationPanel = (JPanel) launcherPanels.get("Character Creation");
 	private final JPanel mechCreationPanel = (JPanel) launcherPanels.get("Mech Creation");
 	private final JPanel mechHangarPanel = (JPanel) launcherPanels.get("Mech Hangar");
+	private final JPanel combatPanel = (JPanel) launcherPanels.get("Combat");
 	private JPanel panel;
+	private JPanel titlePanel = new JPanel();
 	private JButton launchButton = new JButton();
-
-	public LauncherWindow() {
+	private JLabel titleLabel = new JLabel();
 	
+	public LauncherWindow() {
+		this.frame.setTitle("MECH MASTERS");
 		this.frame.setVisible(true);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.frame.setSize(500, 500);
-		this.frame.setTitle("MECH MASTERS");
-		this.frame.setLayout(null);
-		this.frame.getContentPane().setBackground(Color.GRAY);
-		this.frame.add(launchButton);
+		this.frame.setSize(750, 500);
 		this.frame.setLocationRelativeTo(null);
-        
-		this.launchButton.setBounds(200, 300, 90, 25);
+		this.frame.getContentPane().setBackground(Color.GRAY);
+		this.frame.setLayout(new GridBagLayout());
+		this.frame.add(panel = titlePanel);
+		
+		this.titlePanel.setBackground(Color.GRAY);
+		this.titlePanel.setPreferredSize(new Dimension(500, 200));
+		this.titlePanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+		this.titlePanel.add(titleLabel);
+		this.titlePanel.add(launchButton);
+		
+		this.titleLabel.setHorizontalAlignment(JLabel.CENTER);
+		this.titleLabel.setText("MECH MASTERS");
+		Font titleLabelFont = new Font("DejaVu Sans", Font.BOLD, 60);
+		this.titleLabel.setFont(titleLabelFont);
+		
 		this.launchButton.setText("LAUNCH!");
+		this.launchButton.setHorizontalAlignment(JButton.CENTER);
 		this.launchButton.setFocusable(false);
 	}
 	
-	public void addLaunchButtonListener(ActionListener launcherListener) {
+	public void addCreateLaunchButtonListener(ActionListener launcherListener) {
 		this.launchButton.addActionListener(launcherListener);
 	}
 	
@@ -74,7 +90,15 @@ public class LauncherWindow {
 		createMechButton.addActionListener(creatMechListener);
 	}
 	
-	public void addSaveGameButtonListener(ActionListener saveGameListener) {
+	public void addCreateBattleButtonListener(ActionListener BattleListener) {
+		final int BATTLE_BUTTON_ELEMENT = 0;
+		final int BUTTONS_PANEL_ELEMENT = 3;
+		JPanel hangarButtonsPanel = (JPanel) mechHangarPanel.getComponent(BUTTONS_PANEL_ELEMENT);
+ 		JButton createBattleButton = (JButton) hangarButtonsPanel.getComponent(BATTLE_BUTTON_ELEMENT);
+		createBattleButton.addActionListener(BattleListener);
+	}
+	
+	public void addCreateSaveGameButtonListener(ActionListener saveGameListener) {
 		final int BUTTON_CONTROL_PANEL_ELEMENT = 3;
 		final int SAVE_GAME_BUTTON_ELEMENT = 2;
 		JPanel buttonControlPanel = (JPanel) mechHangarPanel.getComponent(BUTTON_CONTROL_PANEL_ELEMENT);
@@ -82,12 +106,28 @@ public class LauncherWindow {
 		saveGameButton.addActionListener(saveGameListener);
 	}
 	
-	public void addLoadGameButtonListener(ActionListener loadGameListener) {
+	public void addCreateLoadGameButtonListener(ActionListener loadGameListener) {
 		final int BUTTON_CONTROL_PANEL_ELEMENT = 3;
 		final int LOAD_GAME_BUTTON_ELEMENT = 3;
 		JPanel buttonControlPanel = (JPanel) mechHangarPanel.getComponent(BUTTON_CONTROL_PANEL_ELEMENT);
 		JButton loadGameButton = (JButton) buttonControlPanel.getComponent(LOAD_GAME_BUTTON_ELEMENT);
 		loadGameButton.addActionListener(loadGameListener);
+	}
+	
+	public void addAttackButtonListener(ActionListener attackListener) {
+		final int BUTTON_CONTROL_PANEL_ELEMENT = 3;
+		final int ATTACK_BUTTON_ELEMENT = 0;
+		JPanel buttonControlPanel = (JPanel) combatPanel.getComponent(BUTTON_CONTROL_PANEL_ELEMENT);
+		JButton loadGameButton = (JButton) buttonControlPanel.getComponent(ATTACK_BUTTON_ELEMENT);
+		loadGameButton.addActionListener(attackListener);
+	}
+	
+	public void addDefendButtonListener(ActionListener defendListener) {
+		final int BUTTON_CONTROL_PANEL_ELEMENT = 3;
+		final int DEFEND_BUTTON_ELEMENT = 1;
+		JPanel buttonControlPanel = (JPanel) combatPanel.getComponent(BUTTON_CONTROL_PANEL_ELEMENT);
+		JButton loadGameButton = (JButton) buttonControlPanel.getComponent(DEFEND_BUTTON_ELEMENT);
+		loadGameButton.addActionListener(defendListener);
 	}
 	
 	public String getCharacterNameField() {
@@ -117,8 +157,8 @@ public class LauncherWindow {
 	}
 	
 	public void transitionToCharacterCreation() {
+		this.frame.remove(this.panel);
 		this.frame.add(this.panel = characterCreationPanel);
-		this.frame.remove(launchButton);
 		this.frame.setLayout(new GridBagLayout());
 		this.frame.revalidate();
 		this.frame.repaint();
@@ -132,23 +172,104 @@ public class LauncherWindow {
 		this.frame.repaint();
 	}
 	
-	public void transitionToMechHangar(String playerName, String mechName, String mechColor, String mechType, String mechHealth) {
+	public void transitionToMechHangar(String playerName, String mechName, String mechColor, 
+										String mechType, String mechArmorAmount) {
 		this.frame.remove(this.panel);
 		this.frame.setLayout(new BorderLayout());
-		JPanel tempPanel = (JPanel) mechHangarPanel.getComponent(1);
-		JLabel tempLabel = (JLabel) tempPanel.getComponent(0);
+		JPanel tempPanel;
+		JLabel tempLabel;
+		
+		tempPanel = (JPanel) mechHangarPanel.getComponent(1);
+		tempLabel = (JLabel) tempPanel.getComponent(0);
 		tempLabel.setText(playerName);
 		tempLabel = (JLabel) tempPanel.getComponent(2);
 		tempLabel.setText(mechName);
 		tempLabel = (JLabel) tempPanel.getComponent(3);
 		tempLabel.setText(mechColor);
-		tempLabel = (JLabel) tempPanel.getComponent(4);
-		tempLabel.setText(mechType);
 		tempLabel = (JLabel) tempPanel.getComponent(5);
-		tempLabel.setText(mechHealth);
+		tempLabel.setText(mechType);
+		tempLabel = (JLabel) tempPanel.getComponent(6);
+		tempLabel.setText(mechArmorAmount);
+		
+		tempPanel = (JPanel) combatPanel.getComponent(1);
+		tempLabel = (JLabel) tempPanel.getComponent(0);
+		tempLabel.setText(playerName);
+		tempLabel = (JLabel) tempPanel.getComponent(2);
+		tempLabel.setText(mechName);
+		tempLabel = (JLabel) tempPanel.getComponent(3);
+		tempLabel.setText(mechColor);
+		tempLabel = (JLabel) tempPanel.getComponent(5);
+		tempLabel.setText(mechType);
+		tempLabel = (JLabel) tempPanel.getComponent(6);
+		tempLabel.setText(mechArmorAmount);
+		
 		this.frame.add(this.panel = mechHangarPanel, BorderLayout.CENTER);
 		this.frame.revalidate();
 		this.frame.repaint();
+	}
+	
+	public void transitionBackToHangar() {
+		this.frame.remove(this.panel);
+		this.frame.add(this.panel = mechHangarPanel, BorderLayout.CENTER);
+		this.frame.revalidate();
+		this.frame.repaint();
+	}
+	
+	public void transitionToBattle(String enemyName, String mechName, String mechColor, 
+									String mechType, String mechArmorAmount) {
+		this.frame.remove(this.panel);
+		
+		JPanel tempPanel;
+		JLabel tempLabel;
+		
+		tempPanel = (JPanel) combatPanel.getComponent(2);
+		tempLabel = (JLabel) tempPanel.getComponent(0);
+		tempLabel.setText(enemyName);
+		tempLabel = (JLabel) tempPanel.getComponent(2);
+		tempLabel.setText(mechName);
+		tempLabel = (JLabel) tempPanel.getComponent(3);
+		tempLabel.setText(mechColor);
+		tempLabel = (JLabel) tempPanel.getComponent(5);
+		tempLabel.setText(mechType);
+		tempLabel = (JLabel) tempPanel.getComponent(6);
+		tempLabel.setText(mechArmorAmount);
+		
+		this.frame.add(this.panel = combatPanel, BorderLayout.CENTER);
+		this.frame.revalidate();
+		this.frame.repaint();
+	}
+	
+	public void updateMechArmorAmountCombatDisplay(String mechArmorAmount) {
+		JPanel tempPanel;
+		JLabel tempLabel;
+		
+		tempPanel = (JPanel) combatPanel.getComponent(1);
+		tempLabel = (JLabel) tempPanel.getComponent(6);
+		tempLabel.setText(mechArmorAmount);
+		this.panel.revalidate();
+		this.panel.repaint();
+	}
+	
+	public void updateMechArmorAmountCombatDisplayEnemy(String mechArmorAmount) {
+		JPanel tempPanel;
+		JLabel tempLabel;
+		
+		tempPanel = (JPanel) combatPanel.getComponent(2);
+		tempLabel = (JLabel) tempPanel.getComponent(6);
+		tempLabel.setText(mechArmorAmount);
+		this.panel.revalidate();
+		this.panel.repaint();
+	}
+	
+	public void updateMechArmorAmountHangarDisplay(String mechArmorAmount) {
+		JPanel tempPanel;
+		JLabel tempLabel;
+		
+		tempPanel = (JPanel) mechHangarPanel.getComponent(1);
+		tempLabel = (JLabel) tempPanel.getComponent(6);
+		tempLabel.setText(mechArmorAmount);
+		this.panel.revalidate();
+		this.panel.repaint();
 	}
 	
 	public void loadStateUIRefresh() {

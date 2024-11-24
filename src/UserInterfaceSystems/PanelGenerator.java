@@ -43,6 +43,7 @@ import java.awt.Color;
  */
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -50,7 +51,9 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 import javax.swing.border.Border;
 
 public class PanelGenerator {
@@ -64,6 +67,7 @@ public class PanelGenerator {
 	
 		characterCreationPanel.setPreferredSize(new Dimension(260, 100));
 		characterCreationPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+		characterCreationPanel.setBackground(Color.GRAY);
 		characterCreationPanel.add(helloPilot);
 		characterCreationPanel.add(characterNameField);
 		characterCreationPanel.add(createCharacterButton);
@@ -100,6 +104,7 @@ public class PanelGenerator {
 	
 		mechCreationPanel.setPreferredSize(new Dimension(400, 100));
 		mechCreationPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+		mechCreationPanel.setBackground(Color.GRAY);
 		mechCreationPanel.add(messageToPlayer);
 		mechCreationPanel.add(mechTypeSelectionLabel);
 		mechCreationPanel.add(mechTypes);
@@ -124,38 +129,58 @@ public class PanelGenerator {
 		Border CompoundBorder = BorderFactory.createCompoundBorder(raisedBevelBorder, loweredBevelBorder);
 		
 		JPanel hangarMainPanel = new JPanel();
+		hangarMainPanel.setBackground(Color.GRAY);
 		hangarMainPanel.setLayout(new BorderLayout());
 		
 		JPanel textRenderPanel = new JPanel();
-		JLabel textRender = new JLabel("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		textRenderPanel.setBackground(Color.GRAY);
+		JTextArea textRender = new JTextArea("Welcome back, pilot.");
+		textRender.setBackground(Color.GRAY);
+		textRender.setEditable(false);
 		
 		JPanel dataDisplayLeft = new JPanel();
+		dataDisplayLeft.setBackground(Color.GRAY);
 		dataDisplayLeft.setBorder(CompoundBorder);
 		dataDisplayLeft.setLayout(new BoxLayout(dataDisplayLeft, BoxLayout.Y_AXIS));
+		
+		Font dataDisplayFont = new Font("DejaVu Sans", Font.BOLD, 16);
 		JLabel leftCharacterName = new JLabel("Character Name");
-		JLabel leftMechStatus = new JLabel("Mech Status");
+		leftCharacterName.setFont(dataDisplayFont);
+		JLabel leftMechStatus = new JLabel("Mech Status: READY");
+		leftMechStatus.setFont(dataDisplayFont);
 		JLabel leftMechName = new JLabel("Mech Name");
+		leftMechName.setFont(dataDisplayFont);
 		JLabel leftMechType = new JLabel("Mech Type");
-		JLabel leftMechColor = new JLabel("Mech Color");
+		leftMechType.setFont(dataDisplayFont);
+		JLabel leftMechColorTop = new JLabel("Mech Color:");
+		leftMechColorTop.setFont(dataDisplayFont);
+		JLabel leftMechColorBottom = new JLabel("Mech Color:");
+		leftMechColorBottom.setFont(dataDisplayFont);
 		JLabel leftMechHealth = new JLabel("Mech Health");
+		leftMechHealth.setFont(dataDisplayFont);
+		
 		dataDisplayLeft.add(leftCharacterName);
 		dataDisplayLeft.add(leftMechStatus);
 		dataDisplayLeft.add(leftMechName);
 		dataDisplayLeft.add(leftMechType);
-		dataDisplayLeft.add(leftMechColor);
+		dataDisplayLeft.add(leftMechColorTop);
+		dataDisplayLeft.add(leftMechColorBottom);
 		dataDisplayLeft.add(leftMechHealth);
 		
 		JPanel dataDisplayRight = new JPanel();
+		dataDisplayRight.setBackground(Color.GRAY);
 		dataDisplayRight.setBorder(CompoundBorder);
 		dataDisplayRight.setLayout(new BoxLayout(dataDisplayRight, BoxLayout.Y_AXIS));
 		
 		JPanel buttonControlPanel = new JPanel();
+		buttonControlPanel.setBackground(Color.GRAY);
 		JButton button1 = new JButton("Battle");
 		JButton button2 = new JButton("Store");
 //		JButton button3 = new JButton("Button");
 //		JButton button4 = new JButton("Button");
 		JButton button5 = new JButton("Save");
 		JButton button6 = new JButton("Load");
+		
 		buttonControlPanel.setLayout(new GridLayout(3, 2, 10, 10));
 		buttonControlPanel.setBorder(CompoundBorder);
 		buttonControlPanel.add(button1);
@@ -181,43 +206,81 @@ public class PanelGenerator {
 		
 		JPanel combatPanel = new JPanel();
 		combatPanel.setLayout(new BorderLayout());
+		combatPanel.setBackground(Color.GRAY);
 		
 		JPanel textRenderPanel = new JPanel();
-		JLabel textRender = new JLabel("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		textRenderPanel.setBackground(Color.GRAY);
+		JTextPane textRender = new JTextPane();
+		textRender.setEditable(false);
+		textRender.setBackground(Color.GRAY);
+		Font textRenderFont = new Font("DejaVu Sans", Font.BOLD, 16);
+		textRender.setFont(textRenderFont);
+		textRender.setText(
+				"The moment has arrived for fighting\r\n"
+				+ "   There is no escape or hiding\r\n"
+				+ "Darkness will be broken open\r\n"
+				+ "   Shattered by the crimson lightning"
+				);
 		
 		JPanel dataDisplayLeft = new JPanel();
+		dataDisplayLeft.setBackground(Color.GRAY);
 		dataDisplayLeft.setBorder(CompoundBorder);
 		dataDisplayLeft.setLayout(new BoxLayout(dataDisplayLeft, BoxLayout.Y_AXIS));
+		
+		Font dataDisplayFont = new Font("DejaVu Sans", Font.BOLD, 16);
 		JLabel leftCharacterName = new JLabel("Character Name");
-		JLabel leftMechStatus = new JLabel("Mech Status");
+		leftCharacterName.setFont(dataDisplayFont);
+		JLabel leftMechStatus = new JLabel("Mech Status: READY");
+		leftMechStatus.setFont(dataDisplayFont);
 		JLabel leftMechName = new JLabel("Mech Name");
+		leftMechName.setFont(dataDisplayFont);
 		JLabel leftMechType = new JLabel("Mech Type");
-		JLabel leftMechColor = new JLabel("Mech Color");
+		leftMechType.setFont(dataDisplayFont);
+		JLabel leftMechColorTop = new JLabel("Mech Color:");
+		leftMechColorTop.setFont(dataDisplayFont);
+		JLabel leftMechColorBottom = new JLabel("Mech Color:");
+		leftMechColorBottom.setFont(dataDisplayFont);
 		JLabel leftMechHealth = new JLabel("Mech Health");
+		leftMechHealth.setFont(dataDisplayFont);
+		
 		dataDisplayLeft.add(leftCharacterName);
 		dataDisplayLeft.add(leftMechStatus);
 		dataDisplayLeft.add(leftMechName);
 		dataDisplayLeft.add(leftMechType);
-		dataDisplayLeft.add(leftMechColor);
+		dataDisplayLeft.add(leftMechColorTop);
+		dataDisplayLeft.add(leftMechColorBottom);
 		dataDisplayLeft.add(leftMechHealth);
 		
 		JPanel dataDisplayRight = new JPanel();
+		dataDisplayRight.setBackground(Color.GRAY);
 		dataDisplayRight.setBorder(CompoundBorder);
 		dataDisplayRight.setLayout(new BoxLayout(dataDisplayRight, BoxLayout.Y_AXIS));
+		
 		JLabel rightCharacterName = new JLabel("Character Name");
-		JLabel rightMechStatus = new JLabel("Mech Status");
+		rightCharacterName.setFont(dataDisplayFont);
+		JLabel rightMechStatus = new JLabel("Mech Status: READY");
+		rightMechStatus.setFont(dataDisplayFont);
 		JLabel rightMechName = new JLabel("Mech Name");
+		rightMechName.setFont(dataDisplayFont);
 		JLabel rightMechType = new JLabel("Mech Type");
-		JLabel rightMechColor = new JLabel("Mech Color");
+		rightMechType.setFont(dataDisplayFont);
+		JLabel rightMechColorTop = new JLabel("Mech Color:");
+		rightMechColorTop.setFont(dataDisplayFont);
+		JLabel rightMechColorBottom = new JLabel("Mech Color");
+		rightMechColorBottom.setFont(dataDisplayFont);
 		JLabel rightMechHealth = new JLabel("Mech Health");
+		rightMechHealth.setFont(dataDisplayFont);
+
 		dataDisplayRight.add(rightCharacterName);
 		dataDisplayRight.add(rightMechStatus);
 		dataDisplayRight.add(rightMechName);
 		dataDisplayRight.add(rightMechType);
-		dataDisplayRight.add(rightMechColor);
+		dataDisplayRight.add(rightMechColorTop);
+		dataDisplayRight.add(rightMechColorBottom);
 		dataDisplayRight.add(rightMechHealth);
 		
 		JPanel buttonControlPanel = new JPanel();
+		buttonControlPanel.setBackground(Color.GRAY);
 		JButton attackButton = new JButton("Attack");
 		JButton defendButton = new JButton("Defend");
 		JButton specialButton = new JButton("Special Action");
