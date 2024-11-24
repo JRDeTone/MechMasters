@@ -64,7 +64,7 @@ public class SoundsOfBattle {
 		case 5 -> "So you fell into tha danger!\n"
 				+ "  And you're all alone tonight...\n"
 				+ "Well ya surrounded by the hurtin' type!\n"
-				+ "  Who will come runnin' to ya side, who will protect ya from you're fright?!";
+				+ "  Who will come runnin' to ya side, who will protect ya from your fright?!";
 		case 6 -> "It's your move.\n"
 				+ "   Choose your side, cause the winners win and the losers lose.\n"
 				+ "Cause I am the one you should fear the most.\n"
