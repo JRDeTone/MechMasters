@@ -73,16 +73,14 @@ public class SaveLoad {
 		
 		playerData.setPlayerName(playerDataFields.get(0));		
 		if (playerDataFields.get(1) == "Light Mech") {
-			playerData.setPlayerMech("Light Mech");
+			playerData.setPlayerMech(playerDataFields.get(1), playerDataFields.get(2), playerDataFields.get(3));
 		}
 		else if (playerDataFields.get(1) == "Medium Mech") {
-			playerData.setPlayerMech("Medium Mech");
+			playerData.setPlayerMech(playerDataFields.get(1), playerDataFields.get(2), playerDataFields.get(3));
 		}
 		else {
-			playerData.setPlayerMech("Heavy Mech");
+			playerData.setPlayerMech(playerDataFields.get(1), playerDataFields.get(2), playerDataFields.get(3));
 		}
-		playerData.setPlayerMechName(playerDataFields.get(2));
-		playerData.setPlayerMechColor(playerDataFields.get(3));
 		
 		return true;
 	}

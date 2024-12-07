@@ -65,31 +65,34 @@ public class GUIController {
 	class CreateCharacterListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			playerData.setPlayerName(launcherWindow.getCharacterNameField());
-			launcherWindow.transitionToMechCreation();
+			if (launcherWindow.getCharacterNameField().length() > 10 || launcherWindow.getCharacterNameField().length() == 0) {
+				launcherWindow.updateCharacterCreationNameError(true);
+			}
+			else {
+				playerData.setPlayerName(launcherWindow.getCharacterNameField());
+				launcherWindow.transitionToMechCreation();
+			}
 		}
 	}
 	
 	class CreateMechListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			playerData.setPlayerMech(launcherWindow.getMechTypeField());
-			playerData.setPlayerMechName(launcherWindow.getMechNameField());
-			playerData.setPlayerMechColor(launcherWindow.getMechColorField());
-			
-			launcherWindow.transitionToMechHangar(playerData.getPlayerName(), playerData.getPlayerMechName(), 
-					playerData.getPlayerMechType(), playerData.getPlayerMechColor(), playerData.playerGetMechArmorAmountString());
+			if (launcherWindow.getMechNameField().length() > 14 || launcherWindow.getMechNameField().length() == 0) {
+				launcherWindow.updateMechCreationNameError(true);
+			}
+			else {
+				playerData.setPlayerMech(launcherWindow.getMechTypeField(), launcherWindow.getMechNameField(), launcherWindow.getMechColorField());
+				launcherWindow.transitionToMechHangar(playerData.getPlayerName(), playerData.getPlayerMechName(), 
+						playerData.getPlayerMechType(), playerData.getPlayerMechColor(), playerData.playerGetMechArmorAmountString());
+			}
 		}
 	}
 	
 	class CreateBattleListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			combatMechanics.setPlayerMech(playerData.getPlayerMech());
-			combatMechanics.setPlayerCombatData();
-			combatMechanics.setEnemyMech();
-			combatMechanics.setEnemyCombatData();
-			combatMechanics.setEnemy();
+			combatMechanics.combatSetup(playerData.getPlayerMech());
 			launcherWindow.transitionToBattle(combatMechanics.getEnemyName(), combatMechanics.getEnemyMechName(), 
 					combatMechanics.getEnemyMechType(), combatMechanics.getEnemyMechColor(), combatMechanics.getEnemyArmorCurrent());
 		}	
@@ -99,9 +102,7 @@ public class GUIController {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String enemySpeech, playerSpeech;
-			System.out.println("I got here.");
 			if (combatMechanics.playerAttackAction()) {
-				System.out.println("Attack!");
 				Random lyricSeeder = new Random();
 				int lyricSeed = lyricSeeder.nextInt(10);
 				enemySpeech = SoundsOfBattle.enemySong(lyricSeed);
@@ -110,17 +111,14 @@ public class GUIController {
 				//launcherWindow.updateMechArmorAmountCombatDisplay(combatMechanics.getPlayerArmorCurrent());
 			}
 			else {
-				System.out.println("Enemy Died.");
 				launcherWindow.updateMechArmorAmountCombatDisplay(playerData.playerGetMechArmorAmountString());
 				launcherWindow.transitionBackToHangar();
 			}
 			
 			if (combatMechanics.enemyAttackAction()) {
-				System.out.println("Attack22222222!");
 				launcherWindow.updateMechArmorAmountCombatDisplay(combatMechanics.getPlayerArmorCurrent());
 			}
 			else {
-				System.out.println("Player has died.");
 				launcherWindow.updateMechArmorAmountCombatDisplay(playerData.playerGetMechArmorAmountString());
 				launcherWindow.transitionBackToHangar();
 			}

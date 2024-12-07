@@ -1,4 +1,4 @@
-Pilot
-heavyMech
-Cool Mech
+Cool
+Light Mech
+Sick Mech Name
 Blue

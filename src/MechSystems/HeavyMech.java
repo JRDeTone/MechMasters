@@ -3,40 +3,31 @@ package MechSystems;
  * Lead Author(s):
  * 
  * @author Joe DeTone
- *         <<add additional lead authors here, with a full first and last name>>
  * 
  * Other contributors:
- *         <<add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
  * 
- * References: 
- *         <<add more references here>>
+ * References:
  * 
  * Version/date: 0.1 31 OCT 2024
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for the HeavyMech class.
+ * Provides fields and methods for {@code HeavyMech} subclass of {@code Mech}.
  * 
  */
 public class HeavyMech extends Mech{
-	private int heavyArmorAmount = 20;
-	private int heavyArmorClass = 1;
-	private final MachineGun machineGun = new MachineGun();
-	
-	public HeavyMech() {
-		this.setMechType("Heavy Mech");
-		this.setMechArmorAmount(heavyArmorAmount);
-		this.setMechArmorClass(heavyArmorClass);
-		this.setMechWeapon(machineGun);
-	}
-	
-	public HeavyMech( String inputName, String inputColor) {
-		super(inputName, inputColor);
-		this.setMechType("Heavy Mech");
-		this.setMechArmorAmount(heavyArmorAmount);
-		this.setMechArmorClass(heavyArmorClass);
-		this.setMechWeapon(machineGun);
+	private static final int HEAVY_ARMOR_AMOUNT = 20;
+	private static final int HEAVY_ARMOR_CLASS = 1;
+	private static final String MECH_TYPE = "Heavy Mech";
+	private static final MachineGun MACHINE_GUN = new MachineGun();
+	/**
+	 * Constructor for {@code HeavyMech}, subclass of {@code Mech}.
+	 * @param int heavyArmorAmount Holds amount of armor.
+	 * @param int heavyArmorClass Holds class of armor.
+	 * @param final MachineGun Holds {@code MechWeapon} object.
+	 */
+	public HeavyMech(String inputName, String inputColor) {
+		super(inputName, inputColor, MECH_TYPE, HEAVY_ARMOR_AMOUNT, HEAVY_ARMOR_CLASS, MACHINE_GUN);
 	}
 
 

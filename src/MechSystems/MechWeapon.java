@@ -27,7 +27,8 @@ public class MechWeapon extends MechEquipment {
 		
 	}
 	
-	public MechWeapon(int inputDamageType, int inputDamageAmount) {
+	public MechWeapon(int inputDamageType, int inputDamageAmount, String inputWeaponName) {
+		super(inputWeaponName);
 		this.damageType = inputDamageType;
 		this.damageAmount = inputDamageAmount;
 	}
@@ -47,5 +48,4 @@ public class MechWeapon extends MechEquipment {
 	public void setDamageAmount(int inputDamageAmount) {
 		this.damageAmount = inputDamageAmount;
 	}
-
 }

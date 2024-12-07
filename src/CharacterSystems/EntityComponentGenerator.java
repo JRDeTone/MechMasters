@@ -1,5 +1,19 @@
 package CharacterSystems;
-
+/**
+ * Lead Author(s):
+ * 
+ * @author Joe DeTone
+ * 
+ * Other contributors:
+ * 
+ * References:
+ * 
+ * Version/date: 0.1 15 NOV 2024
+ * 
+ * Responsibilities of class:
+ * 
+ * {@code EntityComponentGenerator} provides methods to generate a name and a {@code Mech} object for use in {@code CombatMechanics}.
+ */
 import java.util.Random;
 import MechSystems.HeavyMech;
 import MechSystems.LightMech;
@@ -7,7 +21,12 @@ import MechSystems.Mech;
 import MechSystems.MediumMech;
 
 public class EntityComponentGenerator {
-	
+	/**
+	* iNeedACharacter instantiates and returns a {@code NonPlayerCharacter} object and populates characterName field based on a random seed 0-9 by calling {@code Random}.
+	* @param Random nameSeeder Instance of {@code Random}.
+	* @param String characterName Character name depends on switch case outcome.
+	* @return <STRONG>NonPlayerCharacter</STRONG> npc Returns a {@code NonPlayerCharacter} object.
+	*/
 	public static NonPlayerCharacter iNeedACharacter() {
 		Random nameSeeder = new Random();
 		String characterName = switch (nameSeeder.nextInt(10)) {
@@ -26,7 +45,14 @@ public class EntityComponentGenerator {
 		NonPlayerCharacter npc = new NonPlayerCharacter(characterName);
 		return npc;
 	}
-	
+	/**
+	* iNeedAMech instantiates and returns {@code Mech} object and populates the mechName and mechColor 
+	* field based on a random seed 0-9 by calling {@code Random}. 
+	* The mechType field is populated with a seed 0-2.
+	* @param Random nameSeeder Instance of {@code Random}.
+	* @param String mechName Mech name depends on switch case outcome.
+	* @return <STRONG>Mech</STRONG> enemyMech Returns a {@code Mech} object.
+	*/
 	public static Mech iNeedAMech() {
 		Random nameSeeder = new Random();
 		String mechName = switch (nameSeeder.nextInt(10)) {

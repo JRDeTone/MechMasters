@@ -240,6 +240,24 @@ public class LauncherWindow {
 		this.frame.repaint();
 	}
 	
+	public void updateCharacterCreationNameError(boolean errorState) {
+		final int NAME_ERROR = 3;
+		JLabel errorLabel;
+		errorLabel = (JLabel) characterCreationPanel.getComponent(NAME_ERROR);
+		errorLabel.setVisible(errorState);
+		this.panel.revalidate();
+		this.panel.repaint();
+	}
+	
+	public void updateMechCreationNameError(boolean errorState) {
+		final int NAME_ERROR = 7;
+		JLabel errorLabel;
+		errorLabel = (JLabel) mechCreationPanel.getComponent(NAME_ERROR);
+		errorLabel.setVisible(errorState);
+		this.panel.revalidate();
+		this.panel.repaint();
+	}
+	
 	public void updateCombatTextUpdate(String enemySpeech, String playerSpeech) {
 		final int TEXT_RENDER_PANEL_ELEMENT = 0;
 		final int ENEMY_SPEECH_ELEMENT = 1;

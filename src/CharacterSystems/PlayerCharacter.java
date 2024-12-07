@@ -3,28 +3,23 @@ package CharacterSystems;
  * Lead Author(s):
  * 
  * @author Joe DeTone
- *         <<add additional lead authors here, with a full first and last name>>
  * 
  * Other contributors:
- *         <<add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
  * 
- * References: 
- *         <<add more references here>>
+ * References:
  * 
  * Version/date: 0.3 27 OCT 2024
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for the PlayerCharacterClass subclass.
+ * Provides constructor for {@code PlayerCharacterClass} subclass of {@code Character}.
  * 
  */
 public class PlayerCharacter extends Character{
-	
-	public PlayerCharacter() {
-		
-	}
-	
+	/**
+	* Constructor for {@code PlayerCharacter} with a passed in String argument for characterName field.
+	* @param String inputName Player name.
+	*/
 	public PlayerCharacter(String inputName) {
 		super(inputName);
 	}

@@ -44,9 +44,10 @@ public class PanelGenerator {
 	public static JPanel characterCreationPanel() {
 		
 		JPanel characterCreationPanel = new JPanel();
-		JLabel helloPilot = new JLabel();
-		JButton createCharacterButton = new JButton();
+		JLabel helloPilot = new JLabel("Hello, Pilot. Please register to begin.");
+		JButton createCharacterButton = new JButton("Register Pilot");
 		JTextField characterNameField = new JTextField(14);
+		JLabel invalidNameLength = new JLabel("Name is blank or greater than 10 characters.");
 	
 		characterCreationPanel.setPreferredSize(new Dimension(260, 100));
 		characterCreationPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -54,15 +55,15 @@ public class PanelGenerator {
 		characterCreationPanel.add(helloPilot);
 		characterCreationPanel.add(characterNameField);
 		characterCreationPanel.add(createCharacterButton);
+		characterCreationPanel.add(invalidNameLength);
 	
 		helloPilot.setHorizontalAlignment(JLabel.CENTER);
-		helloPilot.setText("Hello, Pilot. Please register to begin.");
 	
 		characterNameField.setHorizontalAlignment(JTextField.CENTER);
 	
-		createCharacterButton.setText("Register Pilot");
 		createCharacterButton.setHorizontalAlignment(JButton.CENTER);
 		createCharacterButton.setFocusable(false);
+		invalidNameLength.setVisible(false);
 	
 	return characterCreationPanel;
 	}
@@ -72,20 +73,17 @@ public class PanelGenerator {
 		String[] mechColorSelection = {"Blue","Red","Green","Yellow","White","Black","Purple","Pink"};
 		
 		JPanel mechCreationPanel = new JPanel();
+		JLabel mechTypeSelectionLabel = new JLabel("Mech Frame: ");
+		JLabel mechColorSelectionLabel = new JLabel("Mech Frame Color: ");
+		JLabel messageToPlayer = new JLabel("Pilot, please select your frame type, its color, and name your mech.");
+		JLabel invalidNameLength = new JLabel("Name is blank or greater than 14 characters.");
 		
-		JLabel mechTypeSelectionLabel = new JLabel();
-		mechTypeSelectionLabel.setText("Mech Frame: ");
-		JLabel mechColorSelectionLabel = new JLabel();
-		mechColorSelectionLabel.setText("Mech Frame Color: ");
-		JLabel messageToPlayer = new JLabel();
-		messageToPlayer.setText("Pilot, please select your frame type, its color, and name your mech.");
-		
-		JButton createMechButton = new JButton();
+		JButton createMechButton = new JButton("Register Mech");
 		JComboBox<String> mechTypes = new JComboBox<String>(mechTypeSelection);
 		JComboBox<String> mechColor = new JComboBox<String>(mechColorSelection);
 		JTextField mechNameField = new JTextField(14);
 	
-		mechCreationPanel.setPreferredSize(new Dimension(400, 100));
+		mechCreationPanel.setPreferredSize(new Dimension(400, 120));
 		mechCreationPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		mechCreationPanel.setBackground(Color.GRAY);
 		mechCreationPanel.add(messageToPlayer);
@@ -95,13 +93,14 @@ public class PanelGenerator {
 		mechCreationPanel.add(mechColor);
 		mechCreationPanel.add(mechNameField);
 		mechCreationPanel.add(createMechButton);
+		mechCreationPanel.add(invalidNameLength);
 	
 		mechNameField.setHorizontalAlignment(JTextField.CENTER);
 	
-		createMechButton.setText("Register Mech");
 		createMechButton.setVerticalAlignment(JButton.BOTTOM);
 		createMechButton.setHorizontalAlignment(JButton.CENTER);
 		createMechButton.setFocusable(false);
+		invalidNameLength.setVisible(false);
 	
 	return mechCreationPanel;
 	}
@@ -319,7 +318,7 @@ public class PanelGenerator {
 
     static Caret hideCaret = new DefaultCaret() {
         @Override
-        public void paint(Graphics g) {
+        public void paint(Graphics graphics) {
         }
 
         @Override

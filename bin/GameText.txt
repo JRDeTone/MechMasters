@@ -1,3 +1,0 @@
-::IntroText:: \&*This is some intro text to be used later.*&
-
-::IntroText2:: \&*This is some intro text to be used later.*&

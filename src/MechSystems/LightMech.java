@@ -4,40 +4,31 @@ package MechSystems;
  * Lead Author(s):
  * 
  * @author Joe DeTone
- *         <<add additional lead authors here, with a full first and last name>>
  * 
  * Other contributors:
- *         <<add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
  * 
- * References: 
- *         <<add more references here>>
+ * References:
  * 
  * Version/date: 0.3 27 OCT 2024
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for the LightMech subclass of the Mech superclass.
+ * Provides fields and methods for the {@code LightMech} subclass of {@code Mech}.
  * 
  */
 
 public class LightMech extends Mech {
-	private int lightArmorAmount = 10;
-	private int lightArmorClass = 0;
-	private final Sword sword = new Sword();
-	
-	public LightMech() {
-		this.setMechType("Light Mech");
-		this.setMechArmorAmount(lightArmorAmount);
-		this.setMechArmorClass(lightArmorClass);
-		this.setMechWeapon(sword);
-	}
-	
-	public LightMech( String inputName, String inputColor) {
-		super(inputName, inputColor);
-		this.setMechType("Light Mech");
-		this.setMechArmorAmount(lightArmorAmount);
-		this.setMechArmorClass(lightArmorClass);
-		this.setMechWeapon(sword);
+	private static final int LIGHT_ARMOR_AMOUNT = 10;
+	private static final int LIGHT_ARMOR_CLASS = 0;
+	private static final String MECH_TYPE = "Light Mech";
+	private static final Sword SWORD = new Sword();
+	/**
+	 * Constructor for {@code LightMech}.
+	 * @param int LIGHT_ARMOR_AMOUNT Holds armor amount.
+	 * @param int LIGHT_ARMOR_CLASS Holds armor class.
+	 * @param Sword SWORD Holds {@code MechWeapon} object.
+	 */
+	public LightMech(String inputName, String inputColor) {
+		super(inputName, inputColor, MECH_TYPE, LIGHT_ARMOR_AMOUNT, LIGHT_ARMOR_CLASS, SWORD);
 	}
 }

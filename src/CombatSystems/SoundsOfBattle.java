@@ -1,9 +1,22 @@
 package CombatSystems;
-
-import java.util.Random;
-
+/**
+ * Lead Author(s):
+ * 
+ * @author Joe DeTone
+ * 
+ * References:
+ * 
+ * Version/date: 0.1 16 Nov 2024
+ * 
+ * Responsibilities of class:
+ * 
+ * Provides methods for the SoundsOfBattle class.
+ * 
+ */
 public class SoundsOfBattle {
-	
+	/**
+	 * This method generates the combat text for the player based on a passed in int argument.
+	 */
 	public static String playerSong(int lyricSeed) {
 		String playerLyrics = switch (lyricSeed) {
 		case 0 -> "This burning...like my veins are filled with nothing but gasoline\n"
@@ -42,7 +55,9 @@ public class SoundsOfBattle {
 		
 		return playerLyrics;	
 	}
-	
+	/**
+	 * This method generates the combat text for the enemy based on a passed in int argument.
+	 */
 	public static String enemySong(int lyricSeed) {
 		String enemyLyrics = switch (lyricSeed) {
 		case 0 -> "Sleepin' like-ah soldier trapped inside an iron lung\n"

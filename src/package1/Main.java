@@ -13,7 +13,6 @@ public class Main {
 		final CombatMechanics combatMechanics = new CombatMechanics();
 		final LauncherWindow openWindow = new LauncherWindow();
 		final GUIController controller = new GUIController(openWindow, playerData, combatMechanics);
-		System.out.println("Entering setup");
 
 	}
 

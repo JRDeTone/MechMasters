@@ -3,14 +3,10 @@ package MechSystems;
  * Lead Author(s):
  * 
  * @author Joe DeTone
- *         <<add additional lead authors here, with a full first and last name>>
  * 
  * Other contributors:
- *         <<add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
  * 
- * References: 
- *         <<add more references here>>
+ * References:
  * 
  * Version/date: 0.1 31 OCT 2024
  * 
@@ -21,23 +17,13 @@ package MechSystems;
  */
 
 public class MediumMech extends Mech {
-	private int mediumArmorAmount = 15;
-	private int mediumArmorClass = 1;
-	private final BeamRifle beamRifle = new BeamRifle();
-	
-	public MediumMech() {
-		this.setMechType("Medium Mech");
-		this.setMechArmorAmount(mediumArmorAmount);
-		this.setMechArmorClass(mediumArmorClass);
-		this.setMechWeapon(beamRifle);
-	}
+	private static final int MEDIUM_ARMOR_AMOUNT = 15;
+	private static final int MEDIUM_ARMOR_CLASS = 1;
+	private static final String MECH_TYPE = "Heavy Mech";
+	private static final BeamRifle BEAM_RIFLE = new BeamRifle();
 	
 	public MediumMech( String inputName, String inputColor) {
-		super(inputName, inputColor);
-		this.setMechType("Medium Mech");
-		this.setMechArmorAmount(mediumArmorAmount);
-		this.setMechArmorClass(mediumArmorClass);
-		this.setMechWeapon(beamRifle);
+		super(inputName, inputColor, MECH_TYPE, MEDIUM_ARMOR_AMOUNT, MEDIUM_ARMOR_CLASS, BEAM_RIFLE);
 	}
 
 }

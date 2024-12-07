@@ -25,9 +25,22 @@ public abstract class MechEquipment {
 //	private int equipmentWeight;
 //	private int equipmentPowerRequirement;
 //	private int equipmentHeatAmount;
+	private String equipmentName = "Default";
 	
 	public MechEquipment(){
 		
+	}
+	
+	public MechEquipment(String inputEquipmentName) {
+		this.equipmentName = inputEquipmentName;
+	}
+	
+	public String getEquipmentName() {
+		return this.equipmentName;
+	}
+	
+	public void setEquipmentName(String inputEquipmentName) {
+		this.equipmentName = inputEquipmentName;
 	}
 	
 }

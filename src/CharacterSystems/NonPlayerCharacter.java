@@ -3,29 +3,24 @@ package CharacterSystems;
  * Lead Author(s):
  * 
  * @author Joe DeTone
- *         <<add additional lead authors here, with a full first and last name>>
  * 
  * Other contributors:
- *         <<add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
  * 
  * References: 
- *         <<add more references here>>
  * 
  * Version/date: 0.3 27 OCT 2024
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for the NonPlayerCharacter subclass.
+ * Provides constructor for {@code NonPlayerCharacter} subclass of {@code Character}.
  * 
  */
 
 public class NonPlayerCharacter extends Character {
-	
-	public NonPlayerCharacter() {
-		
-	}
-	
+	/**
+	* Constructor for {@code NonPlayerCharacter} with a passed in String argument for characterName field.
+	* @param String inputName NPC name.
+	*/
 	public NonPlayerCharacter(String inputName) {
 		super(inputName);
 	}
