@@ -19,7 +19,7 @@ package MechSystems;
 
 public class LightMech extends Mech {
 	private static final int LIGHT_ARMOR_AMOUNT = 10;
-	private static final int LIGHT_ARMOR_CLASS = 0;
+	private static final int LIGHT_ARMOR_CLASS = 1;
 	private static final String MECH_TYPE = "Light Mech";
 	private static final Sword SWORD = new Sword();
 	/**

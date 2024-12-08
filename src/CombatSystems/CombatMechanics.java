@@ -65,6 +65,10 @@ public class CombatMechanics {
 		this.enemyDamageAmount = this.enemyMech.getMechWeapon().getDamageAmount();
 		this.enemyArmorCurrentAmount = this.enemyMech.getMechArmorAmount();
 		this.enemyArmorClass = this.enemyMech.getMechArmorClass();
+		
+//		if(this.playerArmorClass == 0 && this.enemyArmorClass == 2) {
+//			this.playerDamageAmount =
+//		}
 	}
 	
 	/**
@@ -75,7 +79,7 @@ public class CombatMechanics {
 	 */
 	public boolean playerAttackAction() {
 
-		if (this.playerDamageAmount > this.enemyArmorClass) {
+		if (this.playerDamageAmount == this.enemyArmorClass) {
 			this.enemyArmorCurrentAmount = this.enemyArmorCurrentAmount - this.playerDamageAmount;
 		}
 		else {
@@ -99,7 +103,7 @@ public class CombatMechanics {
 	 */
 	public boolean enemyAttackAction() {
 
-		if (this.enemyDamageAmount > this.playerArmorClass) {
+		if (this.enemyDamageAmount == this.playerArmorClass) {
 			this.playerArmorCurrentAmount = this.playerArmorCurrentAmount - this.enemyDamageAmount;
 		}
 		else {

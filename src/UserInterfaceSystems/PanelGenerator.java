@@ -116,9 +116,17 @@ public class PanelGenerator {
 		
 		JPanel textRenderPanel = new JPanel();
 		textRenderPanel.setBackground(Color.GRAY);
-		JTextArea textRender = new JTextArea("Welcome back, pilot.");
-		textRender.setBackground(Color.GRAY);
-		textRender.setEditable(false);
+		Font textRenderFont = new Font("DejaVu Sans", Font.BOLD, 16);
+		
+		JTextPane textRenderMain = new JTextPane();
+		textRenderMain.setEditable(false);
+		textRenderMain.setCaret(hideCaret);
+		textRenderMain.setBackground(Color.GRAY);
+		textRenderMain.setFont(textRenderFont);
+		
+		textRenderMain.setText("Welcome back, Pilot.");
+		
+		textRenderPanel.add(textRenderMain);
 		
 		JPanel dataDisplayLeft = new JPanel();
 		dataDisplayLeft.setBackground(Color.GRAY);
@@ -176,7 +184,6 @@ public class PanelGenerator {
 		hangarMainPanel.add(dataDisplayLeft, BorderLayout.WEST);
 		hangarMainPanel.add(dataDisplayRight, BorderLayout.EAST);
 		hangarMainPanel.add(buttonControlPanel, BorderLayout.SOUTH);
-		textRenderPanel.add(textRender);
 		
 		return hangarMainPanel;
 	}
@@ -211,14 +218,14 @@ public class PanelGenerator {
 		textRenderEnemySpeech.setEditable(false);
 		textRenderEnemySpeech.setCaret(hideCaret);
 		textRenderEnemySpeech.setBackground(Color.GRAY);
+		textRenderEnemySpeech.setFont(textRenderFont);
 		
 		JTextPane textRenderPlayerSpeech = new JTextPane();
 		textRenderPlayerSpeech.setEditable(false);
 		textRenderPlayerSpeech.setCaret(hideCaret);
 		textRenderPlayerSpeech.setBackground(Color.GRAY);
-		
-		textRenderEnemySpeech.setFont(textRenderFont);
 		textRenderPlayerSpeech.setFont(textRenderFont);
+		
 		textRenderEnemySpeech.setText(
 				"The moment has arrived for fighting.\n"
 				+ "   There is no escape or hiding.\n"
@@ -228,6 +235,11 @@ public class PanelGenerator {
 		textRenderPlayerSpeech.setText(
 				"I hear the thunder getting closer all the time.\n"
 				+ "   But my heart of steel will never hide.\n");
+		
+		textRenderPanel.add(textRenderEnemy);
+		textRenderPanel.add(textRenderEnemySpeech);
+		textRenderPanel.add(textRenderPilot);
+		textRenderPanel.add(textRenderPlayerSpeech);
 		
 		JPanel dataDisplayLeft = new JPanel();
 		dataDisplayLeft.setBackground(Color.GRAY);
@@ -296,21 +308,16 @@ public class PanelGenerator {
 		buttonControlPanel.setLayout(new GridLayout(3, 2, 10, 10));
 		buttonControlPanel.setBorder(raisedBevelBorder);
 		buttonControlPanel.add(attackButton);
-		//buttonControlPanel.add(defendButton);
-		//buttonControlPanel.add(reload);
-		//buttonControlPanel.add(specialButton);
-		//buttonControlPanel.add(inventoryButton);
-		//buttonControlPanel.add(surrenderButton);
+//		buttonControlPanel.add(defendButton);
+//		buttonControlPanel.add(reload);
+//		buttonControlPanel.add(specialButton);
+//		buttonControlPanel.add(inventoryButton);
+//		buttonControlPanel.add(surrenderButton);
 		
 		combatPanel.add(textRenderPanel, BorderLayout.CENTER);
 		combatPanel.add(dataDisplayLeft, BorderLayout.WEST);
 		combatPanel.add(dataDisplayRight, BorderLayout.EAST);
 		combatPanel.add(buttonControlPanel, BorderLayout.SOUTH);
-		
-		textRenderPanel.add(textRenderEnemy);
-		textRenderPanel.add(textRenderEnemySpeech);
-		textRenderPanel.add(textRenderPilot);
-		textRenderPanel.add(textRenderPlayerSpeech);
 		
 		return combatPanel;
 	}

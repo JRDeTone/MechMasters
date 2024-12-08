@@ -17,7 +17,7 @@ package MechSystems;
  */
 public class HeavyMech extends Mech{
 	private static final int HEAVY_ARMOR_AMOUNT = 20;
-	private static final int HEAVY_ARMOR_CLASS = 1;
+	private static final int HEAVY_ARMOR_CLASS = 3;
 	private static final String MECH_TYPE = "Heavy Mech";
 	private static final MachineGun MACHINE_GUN = new MachineGun();
 	/**

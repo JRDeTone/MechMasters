@@ -102,24 +102,27 @@ public class GUIController {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String enemySpeech, playerSpeech;
+			Random lyricSeeder = new Random();
 			if (combatMechanics.playerAttackAction()) {
-				Random lyricSeeder = new Random();
 				int lyricSeed = lyricSeeder.nextInt(10);
 				enemySpeech = SoundsOfBattle.enemySong(lyricSeed);
 				playerSpeech = SoundsOfBattle.playerSong(lyricSeed);
-				launcherWindow.updateCombatTextUpdate(enemySpeech, playerSpeech);
-				//launcherWindow.updateMechArmorAmountCombatDisplay(combatMechanics.getPlayerArmorCurrent());
+				launcherWindow.updateCombatText(enemySpeech, playerSpeech);
+				launcherWindow.updateMechArmorAmountCombatDisplayEnemy(combatMechanics.getEnemyArmorCurrent());
 			}
 			else {
-				launcherWindow.updateMechArmorAmountCombatDisplay(playerData.playerGetMechArmorAmountString());
+				launcherWindow.updateMechArmorAmountCombatDisplayPlayer(playerData.playerGetMechArmorAmountString());
+				launcherWindow.updateOutComeMessage("You won. Well done, Pilot.");
 				launcherWindow.transitionBackToHangar();
+				return;
 			}
 			
 			if (combatMechanics.enemyAttackAction()) {
-				launcherWindow.updateMechArmorAmountCombatDisplay(combatMechanics.getPlayerArmorCurrent());
+				launcherWindow.updateMechArmorAmountCombatDisplayPlayer(combatMechanics.getPlayerArmorCurrent());
 			}
 			else {
-				launcherWindow.updateMechArmorAmountCombatDisplay(playerData.playerGetMechArmorAmountString());
+				launcherWindow.updateMechArmorAmountCombatDisplayPlayer(playerData.playerGetMechArmorAmountString());
+				launcherWindow.updateOutComeMessage("You lost. Do not give up, Pilot.");
 				launcherWindow.transitionBackToHangar();
 			}
 		}	

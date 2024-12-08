@@ -3,20 +3,19 @@ package UserInterfaceSystems;
  * Lead Author(s):
  * 
  * @author Joe DeTone
- *         <<add additional lead authors here, with a full first and last name>>
  * 
  * Other contributors:
- *         <<add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
  * 
  * References: 
- *         <<add more references here>>
  * 
  * Version/date: 0.3 27 OCT 2024
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for the GUIComponents class.
+ * Provides fields and methods for the {@code GUIComponents}.
+ * This class provides the underlying data structure for the {@code JPanel} objects created by the methods
+ * in {@code PanelGenerator}. The only reason a {@code HashMap} is used is due to project
+ * requirements. Otherwise, a simple array would have been a better choice.
  * 
  */
 

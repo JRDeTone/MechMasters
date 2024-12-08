@@ -3,16 +3,12 @@ package UserInterfaceSystems;
  * Lead Author(s):
  * 
  * @author Joe DeTone
- *         <<add additional lead authors here, with a full first and last name>>
  * 
  * Other contributors:
- *         <<add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
  * 
- * References: 
- *         <<add more references here>>
+ * References:
  * 
- * Version/date: 0.3.5 16 NOV 2024
+ * Version/date: 0.4 8 DEC 2024
  * 
  * Responsibilities of class:
  * 
@@ -123,13 +119,13 @@ public class LauncherWindow {
 		loadGameButton.addActionListener(attackListener);
 	}
 	
-	public void addDefendButtonListener(ActionListener defendListener) {
-		final int BUTTON_CONTROL_PANEL_ELEMENT = 3;
-		final int DEFEND_BUTTON_ELEMENT = 1;
-		JPanel buttonControlPanel = (JPanel) combatPanel.getComponent(BUTTON_CONTROL_PANEL_ELEMENT);
-		JButton loadGameButton = (JButton) buttonControlPanel.getComponent(DEFEND_BUTTON_ELEMENT);
-		loadGameButton.addActionListener(defendListener);
-	}
+//	public void addDefendButtonListener(ActionListener defendListener) {
+//		final int BUTTON_CONTROL_PANEL_ELEMENT = 3;
+//		final int DEFEND_BUTTON_ELEMENT = 1;
+//		JPanel buttonControlPanel = (JPanel) combatPanel.getComponent(BUTTON_CONTROL_PANEL_ELEMENT);
+//		JButton loadGameButton = (JButton) buttonControlPanel.getComponent(DEFEND_BUTTON_ELEMENT);
+//		loadGameButton.addActionListener(defendListener);
+//	}
 	
 	public String getCharacterNameField() {
 		final int CHARACTER_NAME_ELEMENT = 1;
@@ -258,7 +254,7 @@ public class LauncherWindow {
 		this.panel.repaint();
 	}
 	
-	public void updateCombatTextUpdate(String enemySpeech, String playerSpeech) {
+	public void updateCombatText(String enemySpeech, String playerSpeech) {
 		final int TEXT_RENDER_PANEL_ELEMENT = 0;
 		final int ENEMY_SPEECH_ELEMENT = 1;
 		final int PLAYER_SPEECH_ELEMENT = 3;
@@ -272,7 +268,7 @@ public class LauncherWindow {
 		tempPane.setText(playerSpeech);
 	}
 	
-	public void updateMechArmorAmountCombatDisplay(String mechArmorAmount) {
+	public void updateMechArmorAmountCombatDisplayPlayer(String mechArmorAmount) {
 		final int DATA_DISPLAY_LEFT_ELEMENT = 1;
 		final int LABEL_MECH_ARMOR_AMOUNT = 6;
 		JPanel tempPanel;
@@ -311,7 +307,14 @@ public class LauncherWindow {
 		this.panel.repaint();
 	}
 	
-	public void loadStateUIRefresh() {
-		//Might do something with this later, but just calling transitionToMechHangar again works fine for now.
+	public void updateOutComeMessage(String inputMessage) {
+		final int TEXT_RENDER_PANEL_ELEMENT = 0;
+		final int JTEXT_PANE_ELEMENT = 0;
+		JPanel tempPanel;
+		JTextPane tempPane;
+		
+		tempPanel = (JPanel) mechHangarPanel.getComponent(TEXT_RENDER_PANEL_ELEMENT);
+		tempPane = (JTextPane) tempPanel.getComponent(JTEXT_PANE_ELEMENT);
+		tempPane.setText(inputMessage);
 	}
 }

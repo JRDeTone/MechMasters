@@ -21,10 +21,11 @@ package MechSystems;
  * 
  */
 public class Sword extends MechWeapon {
-	private int swordDamageType = 0;
-	private int swordDamageAmount = 3;
+	private static final int SWORD_DAMAGE_TYPE = 0;
+	private static final int SWORD_DAMAGE_AMOUNT = 3;
+	private static final String WEAPON_NAME = "Sword";
 	
 	public Sword() {
-		
+		super(SWORD_DAMAGE_TYPE, SWORD_DAMAGE_AMOUNT, WEAPON_NAME);
 	}
 }

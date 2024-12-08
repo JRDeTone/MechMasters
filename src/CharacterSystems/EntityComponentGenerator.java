@@ -83,7 +83,7 @@ public class EntityComponentGenerator {
 			default -> "De'folt Exseeyon";
 		};
 		
-		int mechType = nameSeeder.nextInt(2);
+		int mechType = nameSeeder.nextInt(3);
 			if (mechType == 0) {
 				LightMech enemyMech = new LightMech (mechName, mechColor);
 				return enemyMech;

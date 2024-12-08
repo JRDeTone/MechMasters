@@ -17,11 +17,11 @@ package MechSystems;
  */
 public class MachineGun extends MechWeapon implements AmmoSystem{
 	
-	private int damageType = 3;
-	private int damageAmount = 1;
+	private static final int MACHINE_GUN_DAMAGE_TYPE = 3;
+	private static int MACHINE_GUN_DAMAGE_AMOUNT = 1;
 	private int ammoAmount = 24;
 	private int ammoType = 1;
-	private final String WEAPON_NAME = "Beam Rifle";
+	private static final String WEAPON_NAME = "Machine Gun";
 	/**
 	 * Constructor for {@code MachineGun}.
 	 * @param int damageType Holds damage type.
@@ -31,7 +31,7 @@ public class MachineGun extends MechWeapon implements AmmoSystem{
 	 * @param String WEAPON_NAME Holds the weapon name.
 	 */
 	public MachineGun() {
-		
+		super(MACHINE_GUN_DAMAGE_TYPE, MACHINE_GUN_DAMAGE_AMOUNT, WEAPON_NAME);
 	}
 
 	/**
