@@ -17,8 +17,8 @@ package CharacterSystems;
  */
 public class PlayerCharacter extends Character{
 	/**
-	* Constructor for {@code PlayerCharacter} with a passed in String argument for characterName field.
-	* @param String inputName Player name.
+	* Constructor for {@code PlayerCharacter} with a passed in String argument for {@code characterName} field.
+	* @param inputName Player name.
 	*/
 	public PlayerCharacter(String inputName) {
 		super(inputName);

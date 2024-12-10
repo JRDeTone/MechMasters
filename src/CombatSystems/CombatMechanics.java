@@ -12,9 +12,8 @@ package CombatSystems;
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for the CombatMechanics class.
- * This class handles the internal logic for a combat encounter.
- * 
+ * Provides fields and methods for the {@code CombatMechanics} class.
+ * This class acts as a model component for {@code GUIController} and is always instantiated upon program execution.
  */
 
 import CharacterSystems.EntityComponentGenerator;
@@ -31,27 +30,21 @@ public class CombatMechanics {
 	playerArmorClass, enemyArmorClass;
 	
 	/**
-	* Constructor for {@code CombatMechanics}. This should be passed to the {@code GUIController} constructor.
-	* @param int ARMOR_CLASS_FAIL_DAMAGE Fall back damage state to resolve deadlocks.
-	* @param Mech playerMech Instantiates a {@code} Mech} for the player.
-	* @param Mech enemyMech Instantiates a {@code Mech} for the enemy.
-	* @param NonPlayerCharacter Instantiates a {@code NonPlayerCharacter}.
-	* @param int playerDamageAmount Local instance variable for internal logic use.
-	* @param int enemyDamageAmount Local instance variable for internal logic use.
-	* @param int playerArmorCurrentAmount Local instance variable for internal logic use.
-	* @param int enemyArmorCurrentAmount Local instance variable for internal logic use.
-	* @param int playerArmorClass Local instance variable for internal logic use.
-	* @param int enemyArmorClass Local instance variable for internal logic use.
-	*/
+	 * Constructor for {@code CombatMechanics}. This should be passed to the {@code GUIController} constructor.
+	 */
 	public CombatMechanics() {
 
 	}
 	
 	/**
-	 * {@code combatSetup()} takes player's {@code Mech} object and 
-	 * must be called prior to entering a combat encounter. 
-	 * This method generates an opponent for the player and defines the local 
-	 * variables for the class logic to use.
+	 * {@code combatSetup()} accepts {@code Mech} object and must be called prior to entering a combat encounter. 
+	 * This method generates an opponent populates the variables for the class logic to use.
+	 * 
+	 * Return methods allow {@code GUIController} to access the data stored in the class fields.
+	 */
+	/**
+	 * {@code combatSetup} Populates class fields to used by internal logic.
+	 * @param inputPlayerMech Accepts {@code Mech} object argument. Always used with {@code playerMech} from {@code PlayerData}.
 	 */
 	public void combatSetup(Mech inputPlayerMech) {
 		this.playerMech = inputPlayerMech;
@@ -65,16 +58,12 @@ public class CombatMechanics {
 		this.enemyDamageAmount = this.enemyMech.getMechWeapon().getDamageAmount();
 		this.enemyArmorCurrentAmount = this.enemyMech.getMechArmorAmount();
 		this.enemyArmorClass = this.enemyMech.getMechArmorClass();
-		
-//		if(this.playerArmorClass == 0 && this.enemyArmorClass == 2) {
-//			this.playerDamageAmount =
-//		}
 	}
 	
 	/**
-	 * This method is used to determined the outcome of player attack action and
-	 * updates values based on the result of the logic and checks if the encounter can continue.
-	 * The {@code npc} field is set to null for garbage collection.
+	 * This method is used to determine the outcome of player attack action,
+	 * updates values based on the result of the logic, and checks if the encounter can continue.
+	 * The {@code npc} variable is set to null to attempt reliable garbage collection.
 	 * @return {@code True}, the combat encounter can continue. {@code False}, the combat encounter has ended.
 	 */
 	public boolean playerAttackAction() {
@@ -96,9 +85,9 @@ public class CombatMechanics {
 	}
 	
 	/**
-	 * This method is used to determined the outcome of enemy attack action and
-	 * updates values based on the result of the logic and checks if the encounter can continue.
-	 * The {@code npc} field is set to null for garbage collection.
+	 * This method is used to determined the outcome of enemy attack action,
+	 * updates values based on the result of the logic, and checks if the encounter can continue.
+	 * The {@code npc} variable is set to null to attempt reliable garbage collection.
 	 * @return {@code True}, the combat encounter can continue. {@code False}, the combat encounter has ended.
 	 */
 	public boolean enemyAttackAction() {
@@ -121,7 +110,7 @@ public class CombatMechanics {
 	
 	/**
 	 * {@code GUIController} access method.
-	 * @return Returns the {@code characterName} value from the {@code npc} variable.
+	 * @return Returns {@code characterName} as a String from {@code npc} field.
 	 */
 	public String getEnemyName() {
 		return npc.getCharacterName();
@@ -129,7 +118,7 @@ public class CombatMechanics {
 	
 	/**
 	 * {@code GUIController} access method.
-	 * @return Returns the {@code mechName} value from the {@code enemyMech} variable.
+	 * @return Returns {@code mechName} as a String from {@code enemyMech} field.
 	 */
 	public String getEnemyMechName() {
 		return this.enemyMech.getMechName();
@@ -137,7 +126,7 @@ public class CombatMechanics {
 	
 	/**
 	 * {@code GUIController} access method.
-	 * @return Returns the {@code mechColor} value from the {@code enemyMech} variable.
+	 * @return Returns {@code mechColor} as a String from {@code enemyMech} field.
 	 */
 	public String getEnemyMechColor() {
 		return this.enemyMech.getMechColor();
@@ -145,7 +134,7 @@ public class CombatMechanics {
 	
 	/**
 	 * {@code GUIController} access method.
-	 * @return Returns the {@code mechType} value from the {@code enemyMech} variable.
+	 * @return Returns {@code mechType} as a String from {@code enemyMech} variable.
 	 */
 	public String getEnemyMechType() {
 		return this.enemyMech.getMechType();
@@ -153,7 +142,7 @@ public class CombatMechanics {
 	
 	/**
 	 * {@code GUIController} access method.
-	 * @return Returns the {@code playerArmorCurrentAmount} variable as a {@code String} value.
+	 * @return Returns {@code playerArmorCurrentAmount} as a String.
 	 */
 	public String getPlayerArmorCurrent() {
 		return Integer.toString(this.playerArmorCurrentAmount);
@@ -161,7 +150,7 @@ public class CombatMechanics {
 	
 	/**
 	 * {@code GUIController} access method.
-	 * @return Returns the {@code enemyArmorCurrentAmount} variable as a {@code String} value.
+	 * @return Returns the {@code enemyArmorCurrentAmount} variable as a String.
 	 */
 	public String getEnemyArmorCurrent() {
 		return Integer.toString(this.enemyArmorCurrentAmount);

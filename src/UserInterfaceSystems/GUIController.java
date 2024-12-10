@@ -53,6 +53,7 @@ public class GUIController {
 		launcherWindow.addCreateSaveGameButtonListener(new CreateSaveGameListener());
 		
 		launcherWindow.addCreateLoadGameButtonListener(new CreateLoadGameListener());
+		
 	}
 	
 	class CreateLaunchListener implements ActionListener{

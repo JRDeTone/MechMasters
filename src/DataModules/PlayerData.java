@@ -3,20 +3,18 @@ package DataModules;
  * Lead Author(s):
  * 
  * @author Joe DeTone
- *         <<add additional lead authors here, with a full first and last name>>
  * 
  * Other contributors:
- *         <<add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
  * 
  * References: 
- *         <<add more references here>>
  * 
  * Version/date: 0.3 27 OCT 2024
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for the PlayerData class.
+ * Data module class for the player.
+ * Created on program start and supplied to {@code GUIConstroller} and allows controller to access all player data.
+ * Local set and get methods are for {@code GUIController} to manipulate and receive player data.
  * 
  */
 import MechSystems.Mech;
@@ -30,33 +28,40 @@ public class PlayerData {
 	private final PlayerCharacter player = new PlayerCharacter("");
 	private Mech playerMech;
 	/**
-	 * Constructor for the PlayerData object.  This is used with the GUIController to reference.
-	 * @param PlayerCharacter player This field is final, holds the PlayerCharacter object required for all other classes to reference.
-	 * @param Mech playerMech Holds the playerMech object required for all other classes to reference.
+	 * Default constructor.
 	 */
 	public PlayerData() {
 	
 	}
 	/**
-	 * @return Returns the player's name.
+	 * {@code GUIController} access method.
+	 * @return Returns player name as String.
 	 */
 	public String getPlayerName() {
 		return this.player.getCharacterName();
 	}
 	/**
-	 * Sets the player's name from a passed in String argument.
+	 * {@code GUIController} access method.
+	 * Sets {@code characterName} field.
+	 * @param inputName String value for player name.
 	 */
 	public void setPlayerName(String inputName) {
 		this.player.setCharacterName(inputName);
 	}
 	/**
-	 * @return Returns the player's Mech.
+	 * {@code GUIController} access method.
+	 * @return Returns player {@code Mech} object.
 	 */
 	public Mech getPlayerMech() {
 		return this.playerMech;
 	}
+
 	/**
-	 * Sets the players Mech by using a passed in String argument.
+	 * {@code GUIController} access method.
+	 * Sets {@code playerMech} field.
+	 * @param mechType String value to determine which {@code Mech} subclass constructor to call.
+	 * @param mechName String value for {@code mechName} field.
+	 * @param mechColor String value for {@code mechColor} field.
 	 */
 	public void setPlayerMech(String mechType, String mechName, String mechColor) {
 		if (mechType == "Light Mech") {

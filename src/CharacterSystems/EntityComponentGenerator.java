@@ -12,7 +12,9 @@ package CharacterSystems;
  * 
  * Responsibilities of class:
  * 
- * {@code EntityComponentGenerator} provides methods to generate a name and a {@code Mech} object for use in {@code CombatMechanics}.
+ * Provides methods to generate an opponent for the player to be used with {@code CombatMechanics}.
+ * Makes use of {@code Random} to determines the various field values to be set with the {@code NonPlayerCharacter}
+ * and {@code Mech} objects created by the methods in this class.
  */
 import java.util.Random;
 import MechSystems.HeavyMech;
@@ -21,15 +23,18 @@ import MechSystems.Mech;
 import MechSystems.MediumMech;
 
 public class EntityComponentGenerator {
+	
+	private static final Random SEED = new Random();
+	private static final int SEED_RANGE_NAME_COLOR = 10;
+	private static final int SEED_RANGE_MECH_TYPE= 3;
+	
 	/**
-	* iNeedACharacter instantiates and returns a {@code NonPlayerCharacter} object and populates characterName field based on a random seed 0-9 by calling {@code Random}.
-	* @param Random nameSeeder Instance of {@code Random}.
-	* @param String characterName Character name depends on switch case outcome.
-	* @return <STRONG>NonPlayerCharacter</STRONG> npc Returns a {@code NonPlayerCharacter} object.
+	* Returns {@code NonPlayerCharacter} object with field {@code characterName} set
+	* on random 0-9.
+	* @return Returns a {@code NonPlayerCharacter}.
 	*/
 	public static NonPlayerCharacter iNeedACharacter() {
-		Random nameSeeder = new Random();
-		String characterName = switch (nameSeeder.nextInt(10)) {
+		String characterName = switch (SEED.nextInt(SEED_RANGE_NAME_COLOR)) {
 			case 0 -> "Cole Law";
 			case 1 -> "Holden Baks";
 			case 2 -> "Morry Christmas";
@@ -46,16 +51,11 @@ public class EntityComponentGenerator {
 		return npc;
 	}
 	/**
-	* iNeedAMech instantiates and returns {@code Mech} object and populates the mechName and mechColor 
-	* field based on a random seed 0-9 by calling {@code Random}. 
-	* The mechType field is populated with a seed 0-2.
-	* @param Random nameSeeder Instance of {@code Random}.
-	* @param String mechName Mech name depends on switch case outcome.
-	* @return <STRONG>Mech</STRONG> enemyMech Returns a {@code Mech} object.
+	* Returns {@code Mech} object with fields {@code mechName} and {@code mechColor} 
+	* set based on random 0-9 and sets {@code mechType} using random 0-2.
 	*/
 	public static Mech iNeedAMech() {
-		Random nameSeeder = new Random();
-		String mechName = switch (nameSeeder.nextInt(10)) {
+		String mechName = switch (SEED.nextInt(SEED_RANGE_NAME_COLOR)) {
 			case 0 -> "Big Zam";
 			case 1 -> "Guntank";
 			case 2 -> "Khul Johei";
@@ -69,7 +69,7 @@ public class EntityComponentGenerator {
 			default -> "De'folt Exseeyon";
 		};
 		
-		String mechColor = switch (nameSeeder.nextInt(10)) {
+		String mechColor = switch (SEED.nextInt(SEED_RANGE_NAME_COLOR)) {
 			case 0 -> "Bastard-Amber";
 			case 1 -> "Flame-of-Burnt-Brandy";
 			case 2 -> "Lusty Gallant";
@@ -83,7 +83,7 @@ public class EntityComponentGenerator {
 			default -> "De'folt Exseeyon";
 		};
 		
-		int mechType = nameSeeder.nextInt(3);
+		int mechType = SEED.nextInt(SEED_RANGE_MECH_TYPE);
 			if (mechType == 0) {
 				LightMech enemyMech = new LightMech (mechName, mechColor);
 				return enemyMech;

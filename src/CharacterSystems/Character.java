@@ -20,29 +20,28 @@ public class Character {
 	private String characterName;
 	
 	/**
-	*	Constructor for Character objects.
-	* @param characterName String value the represents a character's name.
+	* Default constructor for {@code Character}.
 	*/
 	public Character() {
 		
 	}
 	/**
-	*	Constructs a Character object with the specified String argument.
-	* @param text
+	* Constructs {@code Character} object with supplied String argument for {@code characterName} field.
+	* @param inputName String input for character name.
 	*/
 	public Character(String inputName) {
 		this.characterName = inputName;
 	}
 	/**
-	*  Returns the characterName field as a String value.
+	*  Returns {@code characterName} field as String value.
 	* @return String characterName
 	*/
 	public String getCharacterName() {
 		return this.characterName;
 	}
 	/**
-	 * Accepts a String argument and assigns it to String characterName field.
-	* @param inputName
+	 * Sets {@code characterName} field with String argument.
+	* @param inputName String argument for character name.
 	*/
 	public void setCharacterName(String inputName) {
 		this.characterName = inputName;

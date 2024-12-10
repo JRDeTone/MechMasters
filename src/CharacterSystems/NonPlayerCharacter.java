@@ -18,8 +18,8 @@ package CharacterSystems;
 
 public class NonPlayerCharacter extends Character {
 	/**
-	* Constructor for {@code NonPlayerCharacter} with a passed in String argument for characterName field.
-	* @param String inputName NPC name.
+	* Constructs {@code NonPlayerCharacter} object with supplied String argument for {@code characterName} field.
+	* @param inputName String argument for NPC name.
 	*/
 	public NonPlayerCharacter(String inputName) {
 		super(inputName);
