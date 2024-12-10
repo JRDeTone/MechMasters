@@ -17,8 +17,6 @@ package UserInterfaceSystems;
  */
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
@@ -49,16 +47,16 @@ public class LauncherWindow {
 		this.frame.setVisible(true);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.frame.setSize(850, 500);
+		this.frame.setResizable(false);
 		this.frame.setLocationRelativeTo(null);
 		this.frame.getContentPane().setBackground(Color.GRAY);
 		this.frame.setLayout(new GridBagLayout());
 		this.frame.add(panel = titlePanel);
 		
 		this.titlePanel.setBackground(Color.GRAY);
-		this.titlePanel.setPreferredSize(new Dimension(500, 200));
-		this.titlePanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-		this.titlePanel.add(titleLabel);
-		this.titlePanel.add(launchButton);
+		this.titlePanel.setLayout(new BorderLayout());
+		this.titlePanel.add(titleLabel, BorderLayout.CENTER);
+		this.titlePanel.add(launchButton, BorderLayout.SOUTH);
 		
 		this.titleLabel.setHorizontalAlignment(JLabel.CENTER);
 		this.titleLabel.setText("MECH MASTERS");

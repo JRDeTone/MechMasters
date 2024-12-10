@@ -32,7 +32,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.border.Border;
@@ -48,8 +47,12 @@ public class PanelGenerator {
 		JButton createCharacterButton = new JButton("Register Pilot");
 		JTextField characterNameField = new JTextField(14);
 		JLabel invalidNameLength = new JLabel("Name is blank or greater than 10 characters.");
+		Font textRenderFont = new Font("DejaVu Sans", Font.BOLD, 14);
+		
+		helloPilot.setFont(textRenderFont);
+		invalidNameLength.setFont(textRenderFont);
 	
-		characterCreationPanel.setPreferredSize(new Dimension(260, 100));
+		characterCreationPanel.setPreferredSize(new Dimension(350, 100));
 		characterCreationPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		characterCreationPanel.setBackground(Color.GRAY);
 		characterCreationPanel.add(helloPilot);
@@ -58,10 +61,9 @@ public class PanelGenerator {
 		characterCreationPanel.add(invalidNameLength);
 	
 		helloPilot.setHorizontalAlignment(JLabel.CENTER);
-	
 		characterNameField.setHorizontalAlignment(JTextField.CENTER);
-	
 		createCharacterButton.setHorizontalAlignment(JButton.CENTER);
+		
 		createCharacterButton.setFocusable(false);
 		invalidNameLength.setVisible(false);
 	
@@ -78,12 +80,14 @@ public class PanelGenerator {
 		JLabel messageToPlayer = new JLabel("Pilot, please select your frame type, its color, and name your mech.");
 		JLabel invalidNameLength = new JLabel("Name is blank or greater than 14 characters.");
 		
+		Font textRenderFont = new Font("DejaVu Sans", Font.BOLD, 14);
+		
 		JButton createMechButton = new JButton("Register Mech");
 		JComboBox<String> mechTypes = new JComboBox<String>(mechTypeSelection);
 		JComboBox<String> mechColor = new JComboBox<String>(mechColorSelection);
 		JTextField mechNameField = new JTextField(14);
 	
-		mechCreationPanel.setPreferredSize(new Dimension(400, 120));
+		mechCreationPanel.setPreferredSize(new Dimension(600, 120));
 		mechCreationPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		mechCreationPanel.setBackground(Color.GRAY);
 		mechCreationPanel.add(messageToPlayer);
@@ -94,11 +98,17 @@ public class PanelGenerator {
 		mechCreationPanel.add(mechNameField);
 		mechCreationPanel.add(createMechButton);
 		mechCreationPanel.add(invalidNameLength);
+		
+		mechCreationPanel.setFont(textRenderFont);
+		mechTypeSelectionLabel.setFont(textRenderFont);
+		mechColorSelectionLabel.setFont(textRenderFont);
+		messageToPlayer.setFont(textRenderFont);
+		invalidNameLength.setFont(textRenderFont);
 	
 		mechNameField.setHorizontalAlignment(JTextField.CENTER);
-	
 		createMechButton.setVerticalAlignment(JButton.BOTTOM);
 		createMechButton.setHorizontalAlignment(JButton.CENTER);
+		
 		createMechButton.setFocusable(false);
 		invalidNameLength.setVisible(false);
 	

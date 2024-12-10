@@ -17,7 +17,7 @@ public class SoundsOfBattle {
 	
 	/**
 	 * Generates combat encounter feedback text for the player using random 0-9 passed as argument from {@code GUIController}
-	 * @param lyricSeed Provides the int vale required for the switch case.
+	 * @param lyricSeed Provides the int value required for the switch case.
 	 * @return Returns a String based on switch case value.
 	 */
 	public static String playerSong(int lyricSeed) {

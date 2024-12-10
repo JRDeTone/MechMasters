@@ -16,15 +16,8 @@ package CharacterSystems;
  * 
  */
 
-public class Character {
+public abstract class Character {
 	private String characterName;
-	
-	/**
-	* Default constructor for {@code Character}.
-	*/
-	public Character() {
-		
-	}
 	/**
 	* Constructs {@code Character} object with supplied String argument for {@code characterName} field.
 	* @param inputName String input for character name.
