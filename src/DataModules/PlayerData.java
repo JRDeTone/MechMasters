@@ -50,7 +50,7 @@ public class PlayerData {
 	}
 	/**
 	 * {@code GUIController} access method.
-	 * @return Returns player {@code Mech} object.
+	 * @return Returns the player's assigned {@code Mech} object.
 	 */
 	public Mech getPlayerMech() {
 		return this.playerMech;
@@ -58,7 +58,7 @@ public class PlayerData {
 
 	/**
 	 * {@code GUIController} access method.
-	 * Sets {@code playerMech} field.
+	 * Sets {@code playerMech} field based on passed in values.
 	 * @param mechType String value to determine which {@code Mech} subclass constructor to call.
 	 * @param mechName String value for {@code mechName} field.
 	 * @param mechColor String value for {@code mechColor} field.
@@ -75,61 +75,61 @@ public class PlayerData {
 		}
 	}
 	/**
-	 * @return Returns the player's Mech's name.
+	 * @return Returns {@code playerMech} {@code mechName} field value as a String.
 	 */
 	public String getPlayerMechName() {
 		return this.playerMech.getMechName();
 	}
 	/**
-	 * Sets the player's Mech name.
+	 * Sets {@code playerMech} {@code mechName} field value with passed String.
 	 */
 	public void setPlayerMechName(String inputName) {
 		this.playerMech.setMechName(inputName);
 	}
 	/**
-	 * @return Returns the color of the player's Mech as a String.
+	 * @return Returns {@code playerMech} {@code mechColor} field value as a String.
 	 */
 	public String getPlayerMechColor() {
 		return this.playerMech.getMechColor();
 	}
 	/**
-	 * Sets the player's Mech color with a passed in String argument.
+	 * Sets {@code playerMech} {@code mechColor} field value with passed String.
 	 */
 	public void setPlayerMechColor(String inputColor) {
 		this.playerMech.setMechColor(inputColor);
 	}
 	/**
-	 * @return Returns the player's Mech type as a String.
+	 * @return Returns {@code playerMech} {@code mechType} field value as a String.
 	 */
 	public String getPlayerMechType() {
 		return this.playerMech.getMechType();
 	}
 	/**
-	 * @return Returns the player's Mech armor amount as an int.
+	 * @return Returns {@code playerMech} {@code mechArmorAmount} field value as an int.
 	 */
 	public int playerGetMechArmorAmount() {
 		return this.playerMech.getMechArmorAmount();
 	}
 	/**
-	 * @return Returns the player's Mech armor amount as a String.
+	 * @return Returns {@code playerMech} {@code mechArmorAmount} field value as a String.
 	 */
 	public String playerGetMechArmorAmountString() {
 		return Integer.toString(this.playerMech.getMechArmorAmount());
 	}
 	/**
-	 * Sets the player's Mech armor amount with an int argument.
+	 * Sets {@code playerMech} {@code mechArmorAmount} field value with passed int.
 	 */
 	public void playerSetMechArmorAmount(int inputArmorAmount) {
 		this.playerMech.setMechArmorAmount(inputArmorAmount);
 	}
 	/**
-	 * Sets the player's Mech armor amount with a String argument.
+	 * Sets {@code playerMech} {@code mechArmorAmount} field value with passed String.
 	 */
 	public void setMechArmorAmount(String inputArmorAmount) {
 		this.playerMech.setMechArmorAmount(inputArmorAmount);
 	}
 	/**
-	 * @return Returns the player's Mech armor class as an int.
+	 * @return Returns {@code playerMech} {@code mechArmorClass} field value as an int.
 	 */
 	public int getMechArmorClass() {
 		return this.playerMech.getMechArmorClass();

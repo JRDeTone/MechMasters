@@ -334,7 +334,12 @@ public class PanelGenerator {
 	
 
     static Caret hideCaret = new DefaultCaret() {
-        @Override
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		@Override
         public void paint(Graphics graphics) {
         }
 

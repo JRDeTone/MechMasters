@@ -43,7 +43,7 @@ public class CombatMechanics {
 	 * Return methods allow {@code GUIController} to access the data stored in the class fields.
 	 */
 	/**
-	 * {@code combatSetup} Populates class fields to used by internal logic.
+	 * {@code combatSetup} Populates class fields with values to be used by internal logic.
 	 * @param inputPlayerMech Accepts {@code Mech} object argument. Always used with {@code playerMech} from {@code PlayerData}.
 	 */
 	public void combatSetup(Mech inputPlayerMech) {
@@ -63,7 +63,7 @@ public class CombatMechanics {
 	/**
 	 * This method is used to determine the outcome of player attack action,
 	 * updates values based on the result of the logic, and checks if the encounter can continue.
-	 * The {@code npc} variable is set to null to attempt reliable garbage collection.
+	 * The {@code npc} field is set to null to attempt reliable garbage collection.
 	 * @return {@code True}, the combat encounter can continue. {@code False}, the combat encounter has ended.
 	 */
 	public boolean playerAttackAction() {
@@ -87,7 +87,7 @@ public class CombatMechanics {
 	/**
 	 * This method is used to determined the outcome of enemy attack action,
 	 * updates values based on the result of the logic, and checks if the encounter can continue.
-	 * The {@code npc} variable is set to null to attempt reliable garbage collection.
+	 * The {@code npc} field is set null to attempt reliable garbage collection.
 	 * @return {@code True}, the combat encounter can continue. {@code False}, the combat encounter has ended.
 	 */
 	public boolean enemyAttackAction() {
@@ -110,7 +110,7 @@ public class CombatMechanics {
 	
 	/**
 	 * {@code GUIController} access method.
-	 * @return Returns {@code characterName} as a String from {@code npc} field.
+	 * @return Returns {@code characterName} field value as a String from {@code npc}.
 	 */
 	public String getEnemyName() {
 		return npc.getCharacterName();
@@ -118,7 +118,7 @@ public class CombatMechanics {
 	
 	/**
 	 * {@code GUIController} access method.
-	 * @return Returns {@code mechName} as a String from {@code enemyMech} field.
+	 * @return Returns {@code mechName} field value as a String from {@code enemyMech}.
 	 */
 	public String getEnemyMechName() {
 		return this.enemyMech.getMechName();
@@ -126,7 +126,7 @@ public class CombatMechanics {
 	
 	/**
 	 * {@code GUIController} access method.
-	 * @return Returns {@code mechColor} as a String from {@code enemyMech} field.
+	 * @return Returns {@code mechColor} field value as a String from {@code enemyMech}.
 	 */
 	public String getEnemyMechColor() {
 		return this.enemyMech.getMechColor();
@@ -134,7 +134,7 @@ public class CombatMechanics {
 	
 	/**
 	 * {@code GUIController} access method.
-	 * @return Returns {@code mechType} as a String from {@code enemyMech} variable.
+	 * @return Returns {@code mechType} field value as a String from {@code enemyMech}.
 	 */
 	public String getEnemyMechType() {
 		return this.enemyMech.getMechType();
@@ -142,7 +142,7 @@ public class CombatMechanics {
 	
 	/**
 	 * {@code GUIController} access method.
-	 * @return Returns {@code playerArmorCurrentAmount} as a String.
+	 * @return Returns {@code playerArmorCurrentAmount} field value as a String.
 	 */
 	public String getPlayerArmorCurrent() {
 		return Integer.toString(this.playerArmorCurrentAmount);
@@ -150,7 +150,7 @@ public class CombatMechanics {
 	
 	/**
 	 * {@code GUIController} access method.
-	 * @return Returns the {@code enemyArmorCurrentAmount} variable as a String.
+	 * @return Returns {@code enemyArmorCurrentAmount} field value as a String.
 	 */
 	public String getEnemyArmorCurrent() {
 		return Integer.toString(this.enemyArmorCurrentAmount);

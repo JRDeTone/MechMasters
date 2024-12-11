@@ -3,14 +3,10 @@ package MechSystems;
  * Lead Author(s):
  * 
  * @author Joe DeTone
- *         <<add additional lead authors here, with a full first and last name>>
  * 
  * Other contributors:
- *         <<add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
  * 
  * References: 
- *         <<add more references here>>
  * 
  * Version/date: 0.3 27 OCT 2024
  * 
@@ -27,18 +23,33 @@ public abstract class MechEquipment {
 //	private int equipmentHeatAmount;
 	private String equipmentName = "Default";
 	
+	/**
+	 * Constructor.
+	 */
 	public MechEquipment(){
 		
 	}
 	
+	/**
+	 * Constructor with String argument.
+	 * @param inputEquipmentName String for {@code equipmentName} field value.
+	 */
 	public MechEquipment(String inputEquipmentName) {
 		this.equipmentName = inputEquipmentName;
 	}
 	
+	/**
+	 * Returns {@code equipmentName} field value.
+	 * @return Returned {@code equipmentName} field value as a String.
+	 */
 	public String getEquipmentName() {
 		return this.equipmentName;
 	}
 	
+	/**
+	 * Sets {@code equipmentName} field value.
+	 * @param inputEquipmentName String for {@code equipmentName} field value.
+	 */
 	public void setEquipmentName(String inputEquipmentName) {
 		this.equipmentName = inputEquipmentName;
 	}

@@ -29,8 +29,8 @@ public class EntityComponentGenerator {
 	private static final int SEED_RANGE_MECH_TYPE= 3;
 	
 	/**
-	* Returns {@code NonPlayerCharacter} object with field {@code characterName} set
-	* on random 0-9.
+	* Creates {@code NonPlayerCharacter} object with field {@code characterName} set
+	* using random 0-9.
 	* @return Returns a {@code NonPlayerCharacter}.
 	*/
 	public static NonPlayerCharacter iNeedACharacter() {
@@ -51,8 +51,9 @@ public class EntityComponentGenerator {
 		return npc;
 	}
 	/**
-	* Returns {@code Mech} object with fields {@code mechName} and {@code mechColor} 
-	* set based on random 0-9 and sets {@code mechType} using random 0-2.
+	* Creates {@code Mech} object with fields {@code mechName} and {@code mechColor} 
+	* set using random 0-9 and sets {@code mechType} using random 0-2.
+	* @return Returns a {@code Mech} object.
 	*/
 	public static Mech iNeedAMech() {
 		String mechName = switch (SEED.nextInt(SEED_RANGE_NAME_COLOR)) {

@@ -21,10 +21,9 @@ public class HeavyMech extends Mech{
 	private static final String MECH_TYPE = "Heavy Mech";
 	private static final MachineGun MACHINE_GUN = new MachineGun();
 	/**
-	 * Constructor for {@code HeavyMech}, subclass of {@code Mech}.
-	 * @param int heavyArmorAmount Holds amount of armor.
-	 * @param int heavyArmorClass Holds class of armor.
-	 * @param final MachineGun Holds {@code MechWeapon} object.
+	 * Constructor for {@code HeavyMech}.
+	 * @param inputName String value for {@code mechName} field.
+	 * @param inputColor String value for {@code mechColor} field.
 	 */
 	public HeavyMech(String inputName, String inputColor) {
 		super(inputName, inputColor, MECH_TYPE, HEAVY_ARMOR_AMOUNT, HEAVY_ARMOR_CLASS, MACHINE_GUN);

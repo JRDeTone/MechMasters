@@ -24,11 +24,6 @@ public class MachineGun extends MechWeapon implements AmmoSystem{
 	private static final String WEAPON_NAME = "Machine Gun";
 	/**
 	 * Constructor for {@code MachineGun}.
-	 * @param int damageType Holds damage type.
-	 * @param int damageAmount Holds damage amount.
-	 * @param int ammoAmount Holds ammo amount.
-	 * @param int ammoType Holds ammo type.
-	 * @param String WEAPON_NAME Holds the weapon name.
 	 */
 	public MachineGun() {
 		super(MACHINE_GUN_DAMAGE_TYPE, MACHINE_GUN_DAMAGE_AMOUNT, WEAPON_NAME);
@@ -43,6 +38,7 @@ public class MachineGun extends MechWeapon implements AmmoSystem{
 	}
 	/**
 	 * Sets the ammo amount from a passed int.
+	 * @param inputAmmoAmount int for ammo amount.
 	 */
 	@Override
 	public void setAmmoAmount(int inputAmmoAmount) {
@@ -58,6 +54,7 @@ public class MachineGun extends MechWeapon implements AmmoSystem{
 	}
 	/**
 	 * Sets the ammo type from a passed int.
+	 * @param inputAmmoType int for ammo type.
 	 */
 	@Override
 	public void setAmmoType(int inputAmmoType) {

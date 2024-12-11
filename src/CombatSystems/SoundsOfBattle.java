@@ -10,15 +10,15 @@ package CombatSystems;
  * 
  * Responsibilities of class:
  * 
- * Contains methods used to generate combat encounter feedback text using {@code Random} determine what data is pushed to the UI.
+ * Contains methods used to generate combat encounter feedback text using {@code Random} to determine what data is pushed to the UI.
  * 
  */
 public class SoundsOfBattle {
 	
 	/**
-	 * Generates combat encounter feedback text for the player using random 0-9 passed as argument from {@code GUIController}
+	 * Generates combat encounter feedback text for the player using random 0-9 passed from {@code GUIController}
 	 * @param lyricSeed Provides the int value required for the switch case.
-	 * @return Returns a String based on switch case value.
+	 * @return Returns a String based on pass argument.
 	 */
 	public static String playerSong(int lyricSeed) {
 		String playerLyrics = switch (lyricSeed) {
@@ -59,9 +59,9 @@ public class SoundsOfBattle {
 		return playerLyrics;	
 	}
 	/**
-	 * Generates combat encounter feedback text for the opponent using random 0-9 passed as argument from {@code GUIController}
-	 * @param lyricSeed Provides the int vale required for the switch case.
-	 * @return Returns a String based on switch case value.
+	 * Generates combat encounter feedback text for the opponent using a random 0-9 passed from {@code GUIController}
+	 * @param lyricSeed Provides the int value required for the switch case.
+	 * @return Returns a String based on argument supplied.
 	 */
 	public static String enemySong(int lyricSeed) {
 		String enemyLyrics = switch (lyricSeed) {

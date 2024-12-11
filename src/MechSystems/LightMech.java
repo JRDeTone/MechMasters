@@ -24,9 +24,8 @@ public class LightMech extends Mech {
 	private static final Sword SWORD = new Sword();
 	/**
 	 * Constructor for {@code LightMech}.
-	 * @param int LIGHT_ARMOR_AMOUNT Holds armor amount.
-	 * @param int LIGHT_ARMOR_CLASS Holds armor class.
-	 * @param Sword SWORD Holds {@code MechWeapon} object.
+	 * @param inputName String value for {@code mechName} field.
+	 * @param inputColor String value for {@code mechColor} field.
 	 */
 	public LightMech(String inputName, String inputColor) {
 		super(inputName, inputColor, MECH_TYPE, LIGHT_ARMOR_AMOUNT, LIGHT_ARMOR_CLASS, SWORD);

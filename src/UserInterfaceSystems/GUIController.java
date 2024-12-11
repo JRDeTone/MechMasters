@@ -41,17 +41,11 @@ public class GUIController {
 		combatMechanics = inputCombatMechanics;
 		
 		launcherWindow.addCreateLaunchButtonListener(new CreateLaunchListener());
-		
 		launcherWindow.addCreateCharacterButtonListener(new CreateCharacterListener());
-		
 		launcherWindow.addCreateMechButtonListener(new CreateMechListener());
-		
 		launcherWindow.addCreateBattleButtonListener(new CreateBattleListener());
-		
 		launcherWindow.addAttackButtonListener(new CreateAttackListener());
-		
 		launcherWindow.addCreateSaveGameButtonListener(new CreateSaveGameListener());
-		
 		launcherWindow.addCreateLoadGameButtonListener(new CreateLoadGameListener());
 		
 	}

@@ -13,7 +13,7 @@ package MechSystems;
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for {@code Mech}.
+ * Provides fields and methods for {@code Mech} superclass.
  * 
  */
 public class Mech {
@@ -25,22 +25,16 @@ public class Mech {
 	private MechEquipment[] mechLoadout = new MechEquipment[LOADOUT_SIZE];
 	
 	/**
-	 * Constructor for {@code Mech}.  When any {@code Mech} constructor is instantiated, the method {@code generateDefaultLoadout()} is called.
+	 * Constructor for {@code Mech}. When any {@code Mech} constructor is instantiated, the method {@code generateDefaultLoadout()} is called.
 	 * This method is called to ensure that all default parameters are setup to void possible null pointer errors.
-	 *@param String mechName
-	 *@param String mechColor
-	 *@param String mechType
-	 *@param int mechArmorAmount
-	 *@param int mechArmorClass
-	 *@param int MECH_WEAPON_SLOT
 	 */
 	public Mech() {
 		generateDefaultLoadout();
 	}
 	
 	/**
-	 * @param inputName
-	 * @param inputColor
+	 * @param inputName String value for {@code mechName} field.
+	 * @param inputColor String value for {@code mechColor} field.
 	 */
 	public Mech(String inputName, String inputColor) {
 		generateDefaultLoadout();
@@ -49,10 +43,10 @@ public class Mech {
 	}
 	
 	/**
-	 * @param inputName
-	 * @param inputColor
-	 * @param inputArmorAmount
-	 * @param inputArmorClass
+	 * @param inputName String value for {@code mechName} field.
+	 * @param inputColor String value for {@code mechColor} field.
+	 * @param inputArmorAmount int value for {@code inputArmorAmount} field.
+	 * @param inputArmorClass int value for {@code inputArmorClass} field.
 	 */
 	public Mech(String inputName, String inputColor, int inputArmorAmount, int inputArmorClass) {
 		generateDefaultLoadout();
@@ -63,11 +57,11 @@ public class Mech {
 	}
 	
 	/**
-	 * @param inputName
-	 * @param inputColor
-	 * @param inputArmorAmount
-	 * @param inputArmorClass
-	 * @param inputWeapon
+	 * @param inputName String value for {@code mechName} field.
+	 * @param inputColor String value for {@code mechColor} field.
+	 * @param inputArmorAmount int value for {@code inputArmorAmount} field.
+	 * @param inputArmorClass int value for {@code inputArmorClass} field.
+	 * @param inputWeapon {@code MechWeapon} object for {@code mechLoadout} array.
 	 */
 	public Mech(String inputName, String inputColor, String inputType, int inputArmorAmount, int inputArmorClass, MechWeapon inputWeapon) {
 		this.mechName = inputName;
@@ -78,7 +72,7 @@ public class Mech {
 		this.mechLoadout[MECH_WEAPON_SLOT] = inputWeapon;
 	}
 	/**
-	 * 
+	 * Generates a default loadout to help prevent null pointer errors in the event a {@code Mech} object is created without one.
 	 */
 	private final void generateDefaultLoadout() {
 		MechWeapon defaultWeapon = new MechWeapon();
@@ -86,110 +80,127 @@ public class Mech {
 	}
 	
 	/**
-	 * @return
+	 * Returns {@code mechType} field value.
+	 * @return Returns {@code mechType} field value as a String.
 	 */
 	public String getMechType() {
 		return this.mechType;
 	}
 	
 	/**
-	 * @param mechType
+	 * Sets the {@code mechType} field value.
+	 * @param mechType String value for {@code mechType} field.
 	 */
 	public void setMechType(String mechType) {
 		this.mechType = mechType;
 	}
 
 	/**
-	 * @return
+	 * Returns {@code mechName} field value.
+	 * @return Returns {@code mechName} field value as a String.
 	 */
 	public String getMechName() {
 		return this.mechName;
 	}
 
 	/**
-	 * @param mechName
+	 * Sets the {@code mechName} field value.
+	 * @param mechName String value for {@code mechName} field.
 	 */
 	public void setMechName(String mechName) {
 		this.mechName = mechName;
 	}
 
 	/**
-	 * @return
+	 * Returns {@code mechColor} field value.
+	 * @return Returns {@code mechColor} field value as a String.
 	 */
 	public String getMechColor() {
 		return this.mechColor;
 	}
 
 	/**
-	 * @param mechColor
+	 * Sets {@code mechColor} field value.
+	 * @param mechColor String value for {@code mechName} field.
 	 */
 	public void setMechColor(String mechColor) {
 		this.mechColor = mechColor;
 	}
 	
 	/**
-	 * @return
+	 * Returns {@code mechArmorAmount} field value.
+	 * @return Returns {@code mechArmorAmount} field value as a int.
 	 */
 	public int getMechArmorAmount() {
 		return this.mechArmorAmount;
 	}
 	
 	/**
-	 * @return
+	 * Returns {@code mechArmorAmount} field value.
+	 * @return Returns {@code mechArmorAmount} field value as a String.
 	 */
 	public String getMechArmorAmountString() {
 		return Integer.toString(this.mechArmorAmount);
 	}
 	
 	/**
-	 * @param inputArmorAmount
+	 * Sets {@code mechArmorAmount} field value.
+	 * @param inputArmorAmount int value for {@code mechArmorAmount} field.
 	 */
 	public void setMechArmorAmount(int inputArmorAmount) {
 		this.mechArmorAmount = inputArmorAmount;
 	}
 	
 	/**
-	 * @param inputArmorAmount
+	 * Sets {@code mechArmorAmount} field value.
+	 * @param inputArmorAmount String value for {@code mechArmorAmount} field.
 	 */
 	public void setMechArmorAmount(String inputArmorAmount) {
 		this.mechArmorAmount = Integer.parseInt(inputArmorAmount);
 	}
 	
 	/**
-	 * @return
+	 * Returns {@code mechArmorClass} field value.
+	 * @return Returns {@code mechArmorClass} field value as an int.
 	 */
 	public int getMechArmorClass() {
 		return this.mechArmorClass;
 	}
 	
 	/**
-	 * @param inputArmorClass
+	 * Sets {@code mechArmorClass} field value.
+	 * @param inputArmorClass int value for {@code mechArmorClass} field.
 	 */
 	public void setMechArmorClass(int inputArmorClass) {
 		this.mechArmorClass = inputArmorClass;
 	}
 	
 	/**
-	 * @return
+	 * Returns {@code mechLoadout} field.
+	 * @return Returns {@code mechLoadout} array.
 	 */
 	public MechEquipment[] getMechLoadout() {
 		return this.mechLoadout;
 	}
 	
 	/**
-	 * @return
+	 * Returns {@code mechWeapon} name.
+	 * @return Returns the {@code equipmentName} field value from {@code mechWeapon} object stored in the {@code mechLoadout} array
+	 * as a String.
 	 */
 	public String getMechWeaponName() {
 	return this.mechLoadout[MECH_WEAPON_SLOT].getEquipmentName();
 	}
 	/**
-	 * @return
+	 * Returns {@code mechWeapon}.
+	 * @return Returns {@code mechWeapon} object stored in {@code mechLoadout} array.
 	 */
 	public MechWeapon getMechWeapon() {
 		return (MechWeapon) this.mechLoadout[MECH_WEAPON_SLOT];
 	}
 	/**
-	 * @param inputWeapon
+	 * Sets {@code mechWeapon} object stored in {@code mechLoadout} array.
+	 * @param inputWeapon {@code mechWeapon} object to be loaded in to {@code mechLoadout} array.
 	 */
 	public void setMechWeapon(MechWeapon inputWeapon) {
 		this.mechLoadout[MECH_WEAPON_SLOT] = inputWeapon;
