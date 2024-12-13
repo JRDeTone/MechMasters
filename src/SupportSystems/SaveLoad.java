@@ -16,7 +16,8 @@ package SupportSystems;
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for the SaveLoad class.
+ * Provides fields and methods for the {@code SaveLoad} class.  {@code SaveLoad} is responsible for saving and loading
+ * the current state of essential field values via a .txt file for the program.
  * 
  */
 import java.io.BufferedReader;
@@ -29,6 +30,11 @@ import DataModules.PlayerData;
 
 public class SaveLoad {
 	
+	/**
+	 * This method is responsible for saving the required field values.
+	 * @param playerData {@code playerData} object to scrape values from.
+	 * @return {@code True} if save was successful, {@code False} if save failed.
+	 */
 	public static boolean saveGameState(PlayerData playerData) {
 		ArrayList<String> playerDataFields = new ArrayList<String>();
 		playerDataFields.add(playerData.getPlayerName());
@@ -48,6 +54,11 @@ public class SaveLoad {
 		return true;
 	}
 	
+	/**
+	 * This method loads the required field values.
+	 * @param playerData {@code playerData} object to push values to.
+	 * @return {@code True} if load was successful, {@code False} if load failed.
+	 */
 	public static boolean loadGameState(PlayerData playerData) {
 		ArrayList<String> playerDataFields = new ArrayList<String>();
 

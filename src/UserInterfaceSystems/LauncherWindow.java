@@ -42,6 +42,9 @@ public class LauncherWindow {
 	private JButton launchButton = new JButton();
 	private JLabel titleLabel = new JLabel();
 	
+	/**
+	 * 
+	 */
 	public LauncherWindow() {
 		this.frame.setTitle("MECH MASTERS");
 		this.frame.setVisible(true);
@@ -68,10 +71,16 @@ public class LauncherWindow {
 		this.launchButton.setFocusable(false);
 	}
 	
+	/**
+	 * @param launcherListener
+	 */
 	public void addCreateLaunchButtonListener(ActionListener launcherListener) {
 		this.launchButton.addActionListener(launcherListener);
 	}
 	
+	/**
+	 * @param createCharacterListener
+	 */
 	public void addCreateCharacterButtonListener(ActionListener createCharacterListener) {
 		final int CHARACTER_PANEL_BUTTON_ELEMENT = 2;
 		JButton createCharacterButton;
@@ -79,12 +88,18 @@ public class LauncherWindow {
 		createCharacterButton.addActionListener(createCharacterListener);
 	}
 	
+	/**
+	 * @param creatMechListener
+	 */
 	public void addCreateMechButtonListener(ActionListener creatMechListener) {
 		final int MECH_PANEL_BUTTON_ELEMENT = 6;
 		JButton createMechButton = (JButton) mechCreationPanel.getComponent(MECH_PANEL_BUTTON_ELEMENT);
 		createMechButton.addActionListener(creatMechListener);
 	}
 	
+	/**
+	 * @param BattleListener
+	 */
 	public void addCreateBattleButtonListener(ActionListener BattleListener) {
 		final int BATTLE_BUTTON_ELEMENT = 0;
 		final int BUTTONS_PANEL_ELEMENT = 3;
@@ -93,6 +108,9 @@ public class LauncherWindow {
 		createBattleButton.addActionListener(BattleListener);
 	}
 	
+	/**
+	 * @param saveGameListener
+	 */
 	public void addCreateSaveGameButtonListener(ActionListener saveGameListener) {
 		final int BUTTON_CONTROL_PANEL_ELEMENT = 3;
 		final int SAVE_GAME_BUTTON_ELEMENT = 2;
@@ -101,6 +119,9 @@ public class LauncherWindow {
 		saveGameButton.addActionListener(saveGameListener);
 	}
 	
+	/**
+	 * @param loadGameListener
+	 */
 	public void addCreateLoadGameButtonListener(ActionListener loadGameListener) {
 		final int BUTTON_CONTROL_PANEL_ELEMENT = 3;
 		final int LOAD_GAME_BUTTON_ELEMENT = 3;
@@ -109,6 +130,9 @@ public class LauncherWindow {
 		loadGameButton.addActionListener(loadGameListener);
 	}
 	
+	/**
+	 * @param attackListener
+	 */
 	public void addAttackButtonListener(ActionListener attackListener) {
 		final int BUTTON_CONTROL_PANEL_ELEMENT = 3;
 		final int ATTACK_BUTTON_ELEMENT = 0;
@@ -125,6 +149,9 @@ public class LauncherWindow {
 //		loadGameButton.addActionListener(defendListener);
 //	}
 	
+	/**
+	 * @return
+	 */
 	public String getCharacterNameField() {
 		final int CHARACTER_NAME_ELEMENT = 1;
 		JTextField characterName;
@@ -132,18 +159,27 @@ public class LauncherWindow {
 		return characterName.getText();
 	}
 	
+	/**
+	 * @return
+	 */
 	public String getMechTypeField() {
 		final int MECH_TYPE_ELEMENT = 2;
 		JComboBox<?> comboBox = (JComboBox<?>) mechCreationPanel.getComponent(MECH_TYPE_ELEMENT);
 		return (String) comboBox.getSelectedItem();
 	}
 	
+	/**
+	 * @return
+	 */
 	public String getMechColorField() {
 		final int MECH_COLOR_ELEMENT = 4;
 		JComboBox<?> comboBox = (JComboBox<?>) mechCreationPanel.getComponent(MECH_COLOR_ELEMENT);
 		return (String) comboBox.getSelectedItem();
 	}
 	
+	/**
+	 * @return
+	 */
 	public String getMechNameField() {
 		final int MECH_NAME_ELEMENT = 5;
 		JTextField mechName;
@@ -151,6 +187,9 @@ public class LauncherWindow {
 		return mechName.getText();
 	}
 	
+	/**
+	 * 
+	 */
 	public void transitionToCharacterCreation() {
 		this.frame.remove(this.panel);
 		this.frame.add(this.panel = characterCreationPanel);
@@ -159,6 +198,9 @@ public class LauncherWindow {
 		this.frame.repaint();
 	}
 	
+	/**
+	 * 
+	 */
 	public void transitionToMechCreation() {
 		this.frame.remove(this.panel);
 		this.frame.add(this.panel = mechCreationPanel);
@@ -167,6 +209,13 @@ public class LauncherWindow {
 		this.frame.repaint();
 	}
 	
+	/**
+	 * @param playerName
+	 * @param mechName
+	 * @param mechColor
+	 * @param mechType
+	 * @param mechArmorAmount
+	 */
 	public void transitionToMechHangar(String playerName, String mechName, String mechColor, 
 										String mechType, String mechArmorAmount) {
 		this.frame.remove(this.panel);
@@ -203,6 +252,9 @@ public class LauncherWindow {
 		this.frame.repaint();
 	}
 	
+	/**
+	 * 
+	 */
 	public void transitionBackToHangar() {
 		this.frame.remove(this.panel);
 		this.frame.add(this.panel = mechHangarPanel, BorderLayout.CENTER);
@@ -210,6 +262,13 @@ public class LauncherWindow {
 		this.frame.repaint();
 	}
 	
+	/**
+	 * @param enemyName
+	 * @param mechName
+	 * @param mechColor
+	 * @param mechType
+	 * @param mechArmorAmount
+	 */
 	public void transitionToBattle(String enemyName, String mechName, String mechColor, 
 									String mechType, String mechArmorAmount) {
 		this.frame.remove(this.panel);
@@ -234,6 +293,9 @@ public class LauncherWindow {
 		this.frame.repaint();
 	}
 	
+	/**
+	 * @param errorState
+	 */
 	public void updateCharacterCreationNameError(boolean errorState) {
 		final int NAME_ERROR = 3;
 		JLabel errorLabel;
@@ -243,6 +305,9 @@ public class LauncherWindow {
 		this.panel.repaint();
 	}
 	
+	/**
+	 * @param errorState
+	 */
 	public void updateMechCreationNameError(boolean errorState) {
 		final int NAME_ERROR = 7;
 		JLabel errorLabel;
@@ -252,6 +317,10 @@ public class LauncherWindow {
 		this.panel.repaint();
 	}
 	
+	/**
+	 * @param enemySpeech
+	 * @param playerSpeech
+	 */
 	public void updateCombatText(String enemySpeech, String playerSpeech) {
 		final int TEXT_RENDER_PANEL_ELEMENT = 0;
 		final int ENEMY_SPEECH_ELEMENT = 1;
@@ -266,6 +335,9 @@ public class LauncherWindow {
 		tempPane.setText(playerSpeech);
 	}
 	
+	/**
+	 * @param mechArmorAmount
+	 */
 	public void updateMechArmorAmountCombatDisplayPlayer(String mechArmorAmount) {
 		final int DATA_DISPLAY_LEFT_ELEMENT = 1;
 		final int LABEL_MECH_ARMOR_AMOUNT = 6;
@@ -279,6 +351,9 @@ public class LauncherWindow {
 		this.panel.repaint();
 	}
 	
+	/**
+	 * @param mechArmorAmount
+	 */
 	public void updateMechArmorAmountCombatDisplayEnemy(String mechArmorAmount) {
 		final int DATA_DISPLAY_RIGHT_ELEMENT = 2;
 		final int LABEL_MECH_ARMOR_AMOUNT = 6;
@@ -292,6 +367,9 @@ public class LauncherWindow {
 		this.panel.repaint();
 	}
 	
+	/**
+	 * @param mechArmorAmount
+	 */
 	public void updateMechArmorAmountHangarDisplay(String mechArmorAmount) {
 		final int DATA_DISPLAY_LEFT_ELEMENT = 1;
 		final int LABEL_MECH_ARMOR_AMOUNT = 6;
@@ -305,6 +383,9 @@ public class LauncherWindow {
 		this.panel.repaint();
 	}
 	
+	/**
+	 * @param inputMessage
+	 */
 	public void updateOutComeMessage(String inputMessage) {
 		final int TEXT_RENDER_PANEL_ELEMENT = 0;
 		final int JTEXT_PANE_ELEMENT = 0;

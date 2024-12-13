@@ -22,6 +22,11 @@ public class MediumMech extends Mech {
 	private static final String MECH_TYPE = "Medium Mech";
 	private static final BeamRifle BEAM_RIFLE = new BeamRifle();
 	
+	/**
+	 * Constructor for {@code LightMech}.
+	 * @param inputName String value for {@code mechName} field.
+	 * @param inputColor String value for {@code mechColor} field.
+	 */
 	public MediumMech( String inputName, String inputColor) {
 		super(inputName, inputColor, MECH_TYPE, MEDIUM_ARMOR_AMOUNT, MEDIUM_ARMOR_CLASS, BEAM_RIFLE);
 	}

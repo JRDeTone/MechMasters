@@ -3,20 +3,16 @@ package UserInterfaceSystems;
  * Lead Author(s):
  * 
  * @author Joe DeTone
- *         <<add additional lead authors here, with a full first and last name>>
  * 
  * Other contributors:
- *         <<add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
  * 
  * References: 
- *         <<add more references here>>
  * 
  * Version/date: 0.3 28 OCT 2024
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for the PanelGenerator class.
+ * A JPanel factory class that provides methods to generate specific JPanels to be passed to the UI view.
  * 
  */
 import java.awt.BorderLayout;
@@ -40,6 +36,10 @@ import javax.swing.text.DefaultCaret;
 
 public class PanelGenerator {
 
+	/**
+	 * Generates the {@code characterCreationPanel}.
+	 * @return Returns the JPanel {@code characterCreationPanel}.
+	 */
 	public static JPanel characterCreationPanel() {
 		
 		JPanel characterCreationPanel = new JPanel();
@@ -70,6 +70,10 @@ public class PanelGenerator {
 	return characterCreationPanel;
 	}
 	
+	/**
+	 * Generates the {@code mechReationPanel}.
+	 * @return Returns the JPanel {@code mechReationPanel}.
+	 */
 	public static JPanel mechCreationPanel() {
 		String[] mechTypeSelection = {"Light Mech","Medium Mech","Heavy Mech"};
 		String[] mechColorSelection = {"Blue","Red","Green","Yellow","White","Black","Purple","Pink"};
@@ -115,6 +119,10 @@ public class PanelGenerator {
 	return mechCreationPanel;
 	}
 	
+	/**
+	 * Generates the {@code hangarPanel}.
+	 * @return Returns the JPanel {@code hangarPanel}.
+	 */
 	public static JPanel hangarPanel(){
 		Border loweredBevelBorder = BorderFactory.createLoweredBevelBorder();
 		Border raisedBevelBorder = BorderFactory.createRaisedBevelBorder();
@@ -198,6 +206,10 @@ public class PanelGenerator {
 		return hangarMainPanel;
 	}
 	
+	/**
+	 * Generates the {@code combatPanel}.
+	 * @return Returns the JPanel {@code combatPanel}.
+	 */
 	public static JPanel combatPanel(){
 		Border loweredBevelBorder = BorderFactory.createLoweredBevelBorder();
 		Border raisedBevelBorder = BorderFactory.createRaisedBevelBorder();
@@ -333,10 +345,10 @@ public class PanelGenerator {
 	}
 	
 
+    /**
+     * Some bootstrap code that hides the caret.
+     */
     static Caret hideCaret = new DefaultCaret() {
-        /**
-		 * 
-		 */
 		private static final long serialVersionUID = 1L;
 
 		@Override

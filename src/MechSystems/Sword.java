@@ -4,11 +4,8 @@ package MechSystems;
  * Lead Author(s):
  * 
  * @author Joe DeTone
- *         <<add additional lead authors here, with a full first and last name>>
  * 
  * Other contributors:
- *         <<add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
  * 
  * References: 
  *         <<add more references here>>
@@ -25,6 +22,9 @@ public class Sword extends MechWeapon {
 	private static final int SWORD_DAMAGE_AMOUNT = 3;
 	private static final String WEAPON_NAME = "Sword";
 	
+	/**
+	 * Constructor {@code Sword} constructor.
+	 */
 	public Sword() {
 		super(SWORD_DAMAGE_TYPE, SWORD_DAMAGE_AMOUNT, WEAPON_NAME);
 	}
