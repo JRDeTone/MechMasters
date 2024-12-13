@@ -14,8 +14,8 @@ package UserInterfaceSystems;
  * 
  * Provides fields and methods for the {@code GUIComponents}.
  * This class provides the underlying data structure for the {@code JPanel} objects created by the methods
- * in {@code PanelGenerator}. The only reason a {@code HashMap} is used is due to project
- * requirements. Otherwise, a simple array would have been a better choice.
+ * in {@code PanelGenerator}. {@code HashMap} is being used to try and future proof UI needs. Can easily change
+ * data type to a generic and load in other UI components besides JPanels if and when needed.
  */
 
 import java.util.ArrayList;

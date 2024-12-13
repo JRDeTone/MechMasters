@@ -3,20 +3,22 @@ package UserInterfaceSystems;
  * Lead Author(s):
  * 
  * @author Joe DeTone
- *         <<add additional lead authors here, with a full first and last name>>
  * 
  * Other contributors:
- *         <<add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
  * 
  * References: 
- *         <<add more references here>>
  * 
  * Version/date: 0.3.5 16 NOV 2024
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for the GUIController.
+ * Provides fields and methods for the GUI controller class.
+ * 
+ * Responsible for acting as the controller for MVC model. Governs exchanges between data modules and view. Action events
+ * internal classes are used to drive GUI interactions. Constructor for this class must be provided the view and data models
+ * to function properly.
+ * 
+ * See {@code LauncherWindow} as reference for methods used with the internal {@code ActionListener} classes.
  * 
  */
 
@@ -35,6 +37,12 @@ public class GUIController {
 	private PlayerData playerData;
 	private CombatMechanics combatMechanics;
 	
+	/**
+	 * Constructor.
+	 * @param inputLauncherWindow View object
+	 * @param inputPlayerData Data module object for the player's data.
+	 * @param inputCombatMechanics Combat encounter logic module.
+	 */
 	public GUIController(LauncherWindow inputLauncherWindow, PlayerData inputPlayerData, CombatMechanics inputCombatMechanics) {
 		launcherWindow = inputLauncherWindow;
 		playerData = inputPlayerData;
@@ -50,6 +58,9 @@ public class GUIController {
 		
 	}
 	
+	/**
+	 * Listener for character creation UI transition event.
+	 */
 	class CreateLaunchListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -57,6 +68,9 @@ public class GUIController {
 		}	
 	}
 	
+	/**
+	 * Listener for character creation finished event.
+	 */
 	class CreateCharacterListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -70,6 +84,9 @@ public class GUIController {
 		}
 	}
 	
+	/**
+	 * Listener for mech creation finished event.
+	 */
 	class CreateMechListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -84,6 +101,9 @@ public class GUIController {
 		}
 	}
 	
+	/**
+	 * Listener for battle transition event.
+	 */
 	class CreateBattleListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -93,6 +113,9 @@ public class GUIController {
 		}	
 	}
 	
+	/**
+	 * Listener for player attack action.
+	 */
 	class CreateAttackListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -123,6 +146,9 @@ public class GUIController {
 		}	
 	}
 	
+	/**
+	 * Listener for save game action.
+	 */
 	class CreateSaveGameListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -130,6 +156,9 @@ public class GUIController {
 		}
 	}
 	
+	/**
+	 * Listener for load game listener.
+	 */
 	class CreateLoadGameListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
