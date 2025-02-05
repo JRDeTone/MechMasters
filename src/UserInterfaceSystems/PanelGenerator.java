@@ -13,6 +13,10 @@ package UserInterfaceSystems;
  * Responsibilities of class:
  * 
  * A JPanel factory class that provides methods to generate specific JPanels to be passed to the UI view.
+ * Swing creates arrays for sub-components within a dom-component (sub-compoenents imply the existence of dom-components)
+ * based on the order in which the sub-components are added. For example, the first .add is assigned element position 0.
+ * This fact is leveraged in {@code LauncherWindow}. See the .add order for any panel to derive the correct element position
+ * for casting to be used to update components or retrieve data from them.
  * 
  */
 import java.awt.BorderLayout;
@@ -346,14 +350,14 @@ public class PanelGenerator {
 	
 
     /**
-     * Some bootstrap code that hides the caret.
+     * Some bootstrap code that hides the caret, this is basically magic. Never touch this, it just works.
      */
     static Caret hideCaret = new DefaultCaret() {
 		private static final long serialVersionUID = 1L;
-
-		@Override
-        public void paint(Graphics graphics) {
-        }
+//		I don't honestly know if this is needed, it seems to work fine without it. UI work is magic ahhhhh!
+//		@Override
+//        public void paint(Graphics graphics) {
+//        }
 
         @Override
         public boolean isVisible() {

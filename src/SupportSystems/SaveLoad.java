@@ -3,14 +3,10 @@ package SupportSystems;
  * Lead Author(s):
  * 
  * @author Joe DeTone
- *         <<add additional lead authors here, with a full first and last name>>
  * 
  * Other contributors:
- *         <<add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
  * 
  * References: 
- *         <<add more references here>>
  * 
  * Version/date: 0.1 16 NOV 2024
  * 
