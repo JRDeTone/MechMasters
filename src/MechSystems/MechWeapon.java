@@ -12,7 +12,7 @@ package MechSystems;
  * 
  * Responsibilities of class:
  * 
- * Provides fields and methods for the MechWeapon superclass.
+ * Provides fields and methods for the MechWeapon class that has MechEquipment as abstract.
  * 
  */
 public class MechWeapon extends MechEquipment {

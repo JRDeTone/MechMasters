@@ -1,9 +1,4 @@
-/CharacterSystems/
-/CombatSystems/
-/DataModules/
-/Main/
+/InventorySystems/
 /MechSystems/
-/SaveData.txt
-/SupportSystems/
-/UserInterfaceSystems/
-/module-info.class
+/CharacterSystems/
+/DataModules/
